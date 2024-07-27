@@ -37,7 +37,7 @@ const UserOrders = () => {
       <h2 className="text-2xl font-semibold mb-4">Your Previous Orders</h2>
       {orders.length > 0 ? (
         orders.map((order) => (
-          order.orderStatus === "DELIVERED" && (
+          order.orderStatus === "DELVERED" && (
             <div key={order.orderNumber} className="mb-4 border p-4 rounded-md border-green-600">
               <h3 className="text-xl font-bold mb-2">Order Number: {order.orderNumber}</h3>
               <p className="text-gray-700 mb-2"><strong>Store Name:</strong> {order.storename}</p>
