@@ -24,7 +24,7 @@ const UserOrders = () => {
       id: item.productId,
       title: item.title,
       product_price: item.price,
-      qty: 1, // Default quantity to 1 for repurchase
+      qty: 10, // Default quantity to 1 for repurchase
       discountedPrice: item.price, // Adjust based on your discount logic
       imageUrl: item.imageUrl
     }));
