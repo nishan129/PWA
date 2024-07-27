@@ -6,8 +6,14 @@ import Link from 'next/link';
 import { FaUser } from 'react-icons/fa';
 import { Orbit, Store, Compass } from 'lucide-react';
 import Loading from '@/app/loading';
+import { useSession } from 'next-auth/react';
 
 export default function BottomNavbar() {
+  const {data:session, status } = useSession()
+
+  if (status === "loading") {
+    <Loading />
+  }
   const [active, setActive] = useState('home');
   const isLoggedIn = false; // Replace this with actual login check logic
 
@@ -41,14 +47,19 @@ export default function BottomNavbar() {
         <Compass />
         <span>Explore</span>
       </Link>
-      <Link
-        href={isLoggedIn ? "/logged" : "/login"}
-        onClick={() => handleClick('account')}
-        className={`flex flex-col items-center no-underline ${active === 'account' ? 'text-green-500 border-green-500 border-t-2' : 'text-slate-700 dark:text-slate-700'}`}
-      >
+      {
+        status === "unauthenticated"?(
+          <Link href="/login" onClick={() => handleClick('account')} className={`flex flex-col items-center no-underline ${active === 'account' ? 'text-green-500 border-green-500 border-t-2' : 'text-slate-700 dark:text-slate-700'}`}>
         <FaUser size={24} />
         <span>Account</span>
       </Link>
+        ):(
+          <Link href="/loged" onClick={() => handleClick('account')} className={`flex flex-col items-center no-underline ${active === 'account' ? 'text-green-500 border-green-500 border-t-2' : 'text-slate-700 dark:text-slate-700'}`}>
+        <FaUser size={24} />
+        <span>Account</span>
+      </Link>
+        )
+      }
     </div>
   );
 }

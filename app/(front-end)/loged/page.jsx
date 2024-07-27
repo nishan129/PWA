@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const Business = () => {
-    // const { data: session, status } = useSession();
+    const { data: session, status } = useSession();
     const router = useRouter();
     const [showNumber, setShowNumber] = useState(false);
 
@@ -22,10 +22,10 @@ const Business = () => {
         return <div>Loading...</div>;
     }
 
-    // if (!session) {
-    //     router.push('/login'); // Redirect to login if not authenticated
-    //     return null;
-    // }
+    if (!session) {
+        router.push('/login'); // Redirect to login if not authenticated
+        return null;
+    }
 
     return (
         <div style={styles.container}>
