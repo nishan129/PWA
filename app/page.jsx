@@ -1,10 +1,9 @@
-import UserOrders from '@/components/frontend/buyAgain'
 import React from 'react'
 
 export default function page() {
   return (
     <div>
-        <UserOrders />
+        <h2>Welcome to my new app</h2>
     </div>
   )
 }
