@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Image from 'next/image';
 import toast from 'react-hot-toast';
 import { Minus, Plus } from 'lucide-react';
 import { addToCart } from '@/redux/slices/cartSlice';
@@ -12,7 +11,7 @@ import ProductImage from '@/components/frontend/ProductImage';
 export default function ProductDetailPage({ params: { slug } }) {
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(10);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchProductData() {
@@ -27,13 +26,18 @@ export default function ProductDetailPage({ params: { slug } }) {
     fetchProductData();
   }, [slug]);
 
-  // function handleAddToCart() {
-  //   dispatch(addToCart({ ...product, quantity }));
-  //   toast.success("Item added to cart successfully!");
-  // }
+  function handleAddToCart() {
+    if (product) {
+      dispatch(addToCart({ ...product, quantity }));
+      toast.success("Item added to cart successfully!");
+    }
+  }
 
-  function handleQuantityChange(amount) {
-    setQuantity(prev => Math.max(prev + amount, 10)); // Ensure minimum quantity is 10
+  function handleQuantityChange(delta) {
+    setQuantity(prevQuantity => {
+      const newQuantity = prevQuantity + delta;
+      return Math.max(10, newQuantity); // Ensure quantity does not go below 10
+    });
   }
 
   if (!product) {
@@ -43,19 +47,17 @@ export default function ProductDetailPage({ params: { slug } }) {
   const discount = Math.round((1 - product.discountedPrice / product.product_price) * 100);
 
   return (
-    <div className="  p-4 border">
+    <div className="p-4 border">
       <div className="flex flex-col md:flex-row items-start md:items-center">
-        {/* <div className="relative w-full md:w-1/2">
+        <div className="relative w-full md:w-1/2">
           {product.discountedPrice < product.product_price && (
             <div className="absolute top-0 left-0 bg-green-600 text-white text-sm font-semibold px-2 py-1 rounded-b-2xl">
               {discount}% off
             </div>
-             </div>
-          )} */}
-          <div className="relativ">
-            <ProductImage productImages={product.productImages} />
-          </div>
-       
+          )}
+          <ProductImage productImages={product.productImages} />
+        </div>
+        
         <div className="w-full md:w-1/2 p-4">
           <div className="flex justify-between">
             <h2 className="text-2xl font-bold text-gray-800">{product.title}</h2>
@@ -75,7 +77,7 @@ export default function ProductDetailPage({ params: { slug } }) {
           <div className="flex items-center gap-14 mt-4">
             <button 
               className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200"
-              // onClick={handleAddToCart}
+              onClick={handleAddToCart}
             >
               Add to Cart
             </button>

@@ -2,17 +2,17 @@
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import Link from "next/link";
 export default function LoginForm() {
   const router = useRouter();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   reset,
+  //   formState: { errors },
+  // } = useForm();
   const [loading, setLoading] = useState(false);
 
   async function onSubmit(data) {

@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 export default function ProductList({ slug, id }) {
   const [category, setCategory] = useState(null);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchCategoryData() {
@@ -31,10 +31,10 @@ export default function ProductList({ slug, id }) {
     fetchCategoryData();
   }, [slug, id]);
 
-  // function handleAddToCart(product) {
-  //   dispatch(addToCart(product));
-  //   toast.success("Item added to cart successfully!");
-  // }
+  function handleAddToCart(product) {
+    dispatch(addToCart(product));
+    toast.success("Item added to cart successfully!");
+  }
 
   if (!category) {
     return <p className="text-center text-red-500 font-semibold">Loading category...</p>;
@@ -80,7 +80,7 @@ export default function ProductList({ slug, id }) {
               </div>
               </Link>
               <button
-                // onClick={() => handleAddToCart(product)}
+                onClick={() => handleAddToCart(product)}
                 className="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors duration-300"
               >
                 Add to Cart

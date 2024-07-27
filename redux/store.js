@@ -1,13 +1,13 @@
-// Create the Store
+// Create the store
 
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./slices/cartSlice";
 import checkoutSlice from "./slices/checkoutSlice";
 
-export const store  = configureStore({
+export const store = configureStore({
     reducer:{
-        // Slices go here
+        // Slice go here
         cart: cartSlice,
-        checkout: checkoutSlice
+        checkout:checkoutSlice
     }
 })

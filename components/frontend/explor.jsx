@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 export default function ExploreProduct() {
   const [products, setProducts] = useState([]);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchProductData() {
@@ -25,10 +25,10 @@ export default function ExploreProduct() {
     fetchProductData();
   }, []);
 
-  // function handleAddToCart(product) {
-  //   dispatch(addToCart(product));
-  //   toast.success("Item added to cart successfully!");
-  // }
+  function handleAddToCart(product) {
+    dispatch(addToCart(product));
+    toast.success("Item added to cart successfully!");
+  }
 
   if (!products.length) {
     return <p className="text-center text-red-500 font-semibold">Loading products...</p>;
@@ -71,7 +71,7 @@ export default function ExploreProduct() {
             </div>
             </Link>
             <button
-              // onClick={() => handleAddToCart(product)}
+              onClick={() => handleAddToCart(product)}
               className="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors duration-300"
             >
               Add to Cart

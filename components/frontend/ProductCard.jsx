@@ -1,19 +1,19 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {nameShortener} from "@/lib/nameShort";
-// import { addToCart } from '@/redux/slices/cartSlice';
+import { addToCart } from '@/redux/slices/cartSlice';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 
 export default function ProductCard({ product }) {
-    // const dispatch = useDispatch()
-//     function handleAddToCart(){
+    const dispatch = useDispatch()
+    function handleAddToCart(){
 // // Dispatch the reducer 
-//         dispatch(addToCart(product));
-//         toast.success("Item added Successfully")
-//     }
+        dispatch(addToCart(product));
+        toast.success("Item added Successfully")
+    }
     const formattedPrice = Math.floor(product.discountedPrice);
     const showDiscount = product.discount > 0;
 
@@ -49,9 +49,8 @@ export default function ProductCard({ product }) {
                     {showDiscount && <span className="text-sm text-gray-500 line-through ml-2">₹{product.product_price}</span>}
                 </div>
                 </Link>
-                <button   className="mt-2 bg-green-600 text-white text-sm px-4 py-1 rounded-sm flex items-center justify-center w-full">
+                <button   onClick={()=> handleAddToCart()} className="mt-2 bg-green-600 text-white text-sm px-4 py-1 rounded-sm flex items-center justify-center w-full">
                     Add
-                    {/* onClick={()=> handleAddToCart()} */}
                 </button>
             </div>
         </div>
