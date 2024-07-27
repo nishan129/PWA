@@ -7,7 +7,7 @@ export default function CartItems({ Subtotal }) {
   const total = parseFloat(Subtotal) + shippingCost + Tax;
 
   return (
-    <div className="border border-green-600 bg-slate-50 dark:bg-slate-800 rounded-md p-4 mb-4 shadow-xl">
+    <div className="border border-green-600 bg-slate-50 dark:bg-slate-50 rounded-md p-4 mb-4 shadow-xl">
       <h2 className="font-bold text-2xl py-2">Cart Total</h2>
       <div className="flex items-center justify-between border-b pb-4 border-green-600">
         <span>SubTotal</span>
