@@ -25,7 +25,7 @@ export default function Page() {
   }, [currentStep]);
 
   return (
-    <div className='dark:bg-slate-900 min-h-screen'>
+    <div className='dark:bg-slate-50 min-h-screen'>
       {/* STEPS */}
       <div className='bg-slate-50'>
         <StepIndicator currentStep={currentStep} setCurrentStep={handleSetCurrentStep} />

@@ -57,9 +57,9 @@ export default function PaymentMethod() {
   }
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md dark:bg-slate-800">
+    <div className="p-6 bg-white rounded-lg shadow-md dark:bg-white">
       <h2 className="text-2xl font-semibold mb-4">Select Payment Option</h2>
-      <div className="border border-green-600 bg-slate-50 dark:bg-slate-700 rounded-md p-4 shadow-md mb-6">
+      <div className="border border-green-600 bg-slate-50 dark:bg-slate-50 rounded-md p-4 shadow-md mb-6">
         <div className="flex items-center">
           <input
             type="radio"
