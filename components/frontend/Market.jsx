@@ -23,7 +23,7 @@ export default function MarketPage({ onMarketClick , markets}) {
   }, []);
 
   return (
-    <div className={`rounded-lg w-full transition-all dark:bg-slate-600 duration-300 ${isScrolled ? 'bg-white dark:bg-slate-600 shadow-md py-4' : 'bg-slate-50 py-4'}`}>
+    <div className={`rounded-lg w-full transition-all dark:bg-white duration-300 ${isScrolled ? 'bg-white dark:bg-white shadow-md py-4' : 'bg-slate-50 py-4'}`}>
       <div className="flex justify-center items-center space-x-4">
         {isScrolled ? (
           markets.map((market, index) => (
