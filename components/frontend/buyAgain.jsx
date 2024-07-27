@@ -33,7 +33,7 @@ const UserOrders = () => {
   };
 
   return (
-    <div className="p-6 rounded-lg dark:bg-slate-800">
+    <div className="p-6 rounded-lg dark:bg-slate-50">
       <h2 className="text-2xl font-semibold mb-4">Your Previous Orders</h2>
       {orders.length > 0 ? (
         orders.map((order) => (
