@@ -9,6 +9,7 @@ import { authOptions } from '@/lib/authOptions';
 import KiranaDashboard from '@/components/backoffice/KiranaDashboard';
 import WholesalerDashgboard from '@/components/backoffice/WholesalerDashgboard';
 import { getData } from '@/lib/getData';
+import OrderDetails from '@/components/backoffice/OrderDetails';
 
 export default async function page() {
   const session = await getServerSession(authOptions)
@@ -35,6 +36,7 @@ export default async function page() {
         <DashboardCharts sales={sales} orders={orders}/>
         {/* Recent Orders Table */}
         {/* <CustomDataTable />  */}
+        <OrderDetails />
     </div>
   );
 }
