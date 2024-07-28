@@ -1,10 +1,10 @@
 {
-    "theme_color": "#f69435",
-    "background_color": "#f69435",
+    "theme_color": "#09f15a",
+    "background_color": "#09f15a",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "Locsell",
+    "name": "Loksell",
     "short_name": "LS",
     "icons": [
         {
