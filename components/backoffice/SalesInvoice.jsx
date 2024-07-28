@@ -46,7 +46,6 @@ const SalesInvoice = forwardRef(({ order }, ref) => {
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" className="px-6 py-3">Item</th>
-                            <th scope="col" className="px-6 py-3">Item Description</th>
                             <th scope="col" className="px-6 py-3">Qty</th>
                             <th scope="col" className="px-6 py-3">Unit Cost</th>
                             <th scope="col" className="px-6 py-3">Line Total</th>
@@ -58,7 +57,7 @@ const SalesInvoice = forwardRef(({ order }, ref) => {
                                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {item.title}
                                 </th>
-                                <td className="px-6 py-4">{item.description}</td>
+                               
                                 <td className="px-6 py-4">{item.quantity}</td>
                                 <td className="px-6 py-4">₹{item.price}</td>
                                 <td className="px-6 py-4">₹{item.quantity * item.price}</td>
