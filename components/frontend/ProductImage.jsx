@@ -25,22 +25,22 @@ export default function ProductImage({ productImages }) {
 
   return (
       <Carousel
-      // swipeable={true}
-      // draggable={true}
-      // showDots={true}
+      swipeable={true}
+      draggable={true}
+      showDots={true}
       responsive={responsive}
-      // // ssr={true} // means to render carousel on server-side.
-      // // infinite={true}
-      // // autoPlay={true}
-      // autoPlaySpeed={1000}
-      // keyBoardControl={true}
-      // customTransition="all .5"
-      // transitionDuration={500}
-      // containerClass="carousel-container"
-      // removeArrowOnDeviceType={["tablet", "mobile"]}
-      // deviceType={true}
-      // dotListClass="custom-dot-list-style px-8"
-      // itemClass="carousel-item-padding-40-px relative text-green-500"
+      ssr={true} // means to render carousel on server-side.
+      infinite={true}
+      autoPlay={true}
+      autoPlaySpeed={1000}
+      keyBoardControl={true}
+      customTransition="all .5"
+      transitionDuration={500}
+      containerClass="carousel-container"
+      removeArrowOnDeviceType={["tablet", "mobile"]}
+      deviceType={true}
+      dotListClass="custom-dot-list-style px-8"
+      itemClass="carousel-item-padding-40-px relative text-green-500"
       >
         {productImages.map((image, index) => (
           <div key={index} className="relative text-green-500">

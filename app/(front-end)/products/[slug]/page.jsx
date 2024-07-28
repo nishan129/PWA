@@ -74,12 +74,12 @@ export default function ProductDetailPage({ params: { slug } }) {
           </div>
           <p className="mt-4 text-gray-700">Minimum Wholesale Quantity: 10 {product.packets_box_peti}</p>
           <p className="text-gray-700">Per {product.packets_box_peti}: {product.no_piece} pieces</p>
-          <div className="flex items-center gap-14 mt-4">
+          <div className="flex items-center gap-12 mt-4">
             <button 
-              className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200"
+              className="bg-green-600 text-white px-4 py-2  rounded-md hover:bg-green-700 transition duration-200"
               onClick={handleAddToCart}
             >
-              Add to Cart
+              Add
             </button>
             <div className="ml-4 flex items-center border border-green-400 rounded-lg">
               <button 
