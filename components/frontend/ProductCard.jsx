@@ -37,7 +37,7 @@ export default function ProductCard({ product }) {
             </Link>
             <div className="mt-2 flex flex-col items-start">
             <Link href={`/products/${product.slug}`}>
-                <h3 className="text-sm font-small text-gray-900 truncate">
+                <h3 className="text-sm font-small text-gray-900 ">
                     {nameShortener(product.title,18)}
                 </h3>
                 <p className="text-sm text-gray-600">{product.unit}</p>
