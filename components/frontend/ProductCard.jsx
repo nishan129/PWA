@@ -45,8 +45,8 @@ export default function ProductCard({ product }) {
                 <Link href={`/products/${product.slug}`}>
                 <div className="text-lg font-semibold text-slate-800 flex items-baseline">
                     ₹{showDiscount ? formattedPrice : product.product_price}
-                    {showDiscount && <span className="text-sm font-normal text-slate-800 ml-1">MRP</span>}
-                    {showDiscount && <span className="text-sm text-gray-500 line-through ml-2">₹{product.product_price}</span>}
+                    {showDiscount && <span className="text-sm font-normal text-slate-800 ">MRP</span>}
+                    {showDiscount && <span className="text-sm text-gray-500 line-through">₹{product.product_price}</span>}
                 </div>
                 </Link>
                 <button   onClick={()=> handleAddToCart()} className="mt-2 bg-green-600 text-white text-sm px-4 py-1 rounded-sm flex items-center justify-center w-full">
