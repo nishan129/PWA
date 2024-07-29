@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { Truck, RotateCcw, AlertTriangle, Gift, Target, Settings, Phone, LogOut, LayoutDashboard } from 'lucide-react';
+import { Truck, RotateCcw, AlertTriangle, Gift, Target, Settings, Phone, LogOut, LayoutDashboard, BaggageClaim } from 'lucide-react';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -28,14 +28,15 @@ const Business = () => {
     }
 
     return (
-        <div style={styles.container}>
+        <div style={styles.container} className='mt-0'>
             <div style={styles.header}>
                 <div style={styles.userInfo}>
                     <div style={styles.name}>{session?.user?.name || 'Username'}</div>
                     <div style={styles.email}>{session?.user?.email || 'user@example.com'}</div>
                 </div>
                 <div style={styles.icon}>
-                    <AlertTriangle color="white" size={40} />
+                    <BaggageClaim color="white" size={40} />
+                    {/* <AlertTriangle color="white" size={40} /> */}
                 </div>
             </div>
             <div style={styles.section}>
@@ -72,7 +73,8 @@ const Business = () => {
 const styles = {
     container: {
         fontFamily: 'Arial, sans-serif',
-        padding: '20px',
+        padding: '1px',
+
     },
     header: {
         display: 'flex',

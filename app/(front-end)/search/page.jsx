@@ -78,7 +78,7 @@ export default function SearchMa() {
             {products.map((product) => (
               <li key={product.id} className="flex items-center">
                 <img src={product.imageUrl} alt={product.title} className="w-12 h-12 mr-4 rounded-lg object-cover" />
-                <a href={`/product/${product.id}`} className="text-green-600 hover:underline">
+                <a href={`/products/${product.slug}`} className="text-green-600 hover:underline">
                   {product.title}
                 </a>
               </li>

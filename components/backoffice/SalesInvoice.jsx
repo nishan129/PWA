@@ -10,7 +10,7 @@ const SalesInvoice = forwardRef(({ order }, ref) => {
             {/* Header */}
             <div className="flex justify-between border-b border-gray-500 pb-8">
                 <div className="flex flex-col">
-                    <h2>Bill From: LocSell</h2>
+                    <h2>Bill From: LokSell</h2>
                     <p>Bhilai</p>
                     <p>490020</p>
                     <p>Chhattisgarh</p>
