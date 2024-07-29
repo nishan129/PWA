@@ -36,15 +36,17 @@ const styles = {
   container: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: '20px'
+    justifyContent: 'space-around',
+    padding: '20px',
+    flexWrap: 'wrap'
   },
   step: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
     position: 'relative',
-    margin: '0 20px'
+    textAlign: 'center',
+    margin: '0 10px'
   },
   circle: {
     width: '30px',
@@ -72,12 +74,12 @@ const styles = {
   },
   line: {
     height: '2px',
-    width: '70px',
+    width: '50px',
     backgroundColor: '#bbb',
     position: 'absolute',
     top: '15px',
-    left: '100%',
-    marginLeft: '10px'
+    left: '85%',
+    transform: 'translateX(10px)'
   }
 };
 
