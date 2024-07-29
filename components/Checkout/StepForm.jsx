@@ -81,7 +81,7 @@ const CustomerList = () => {
   const selectedCustomerData = getSelectedCustomerData();
 
   return (
-    <div className="max-w-3xl p-4 bg-white border border-green-600 shadow-lg">
+    <div className="max-w-3xl p-4  bg-white border border-green-600 shadow-lg">
       <button
         onClick={handleAddCustomer}
         className="mb-4 px-4 py-2 bg-green-600 text-white rounded"
@@ -92,7 +92,7 @@ const CustomerList = () => {
         {customers.map((customer) => (
           <li
             key={customer.id}
-            className="mb-4 p-4 border border-gray-300 rounded flex items-center justify-between"
+            className="mb-4 p-4 border  border-gray-300 rounded flex items-center justify-between"
           >
             <div>
               <input
@@ -137,8 +137,8 @@ const CustomerList = () => {
                 handleSaveCustomer();
               }}
             >
-              <div className="mb-4">
-                <label className="block text-gray-700 mb-2">Store Name</label>
+              <div className="">
+                <label className="block text-gray-700 ">Store Name</label>
                 <input
                   type="text"
                   className="w-full px-3 py-2 border border-gray-300 rounded"

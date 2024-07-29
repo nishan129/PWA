@@ -61,7 +61,7 @@ export default function RegisterForm({ role = 'KIRANA' }) {
         errors={errors}
         type="hidden"
         defaultValue={role}
-        className="sm:col-span-2 mb-3"
+        className="sm:col-span-2 mb-3 text-slate-900"
       />
       <TextInput 
         label="Full Name" 
