@@ -1,18 +1,20 @@
 "use client"
 import React, { useState } from 'react';
-import { Truck, RotateCcw, AlertTriangle, Gift, Target, Settings, Phone, LogOut, LayoutDashboard, BaggageClaim } from 'lucide-react';
+import { Truck, RotateCcw, Gift, Phone, LogOut, LayoutDashboard, BaggageClaim } from 'lucide-react';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const Business = () => {
     const { data: session, status } = useSession();
+    const role = session?.user?.role;
     const router = useRouter();
     const [showNumber, setShowNumber] = useState(false);
 
     const handleButtonClick = () => {
         setShowNumber(true);
     };
+
     async function handleLogout() {
         await signOut({ redirect: false });
         router.push('/');
@@ -36,7 +38,6 @@ const Business = () => {
                 </div>
                 <div style={styles.icon}>
                     <BaggageClaim color="white" size={40} />
-                    {/* <AlertTriangle color="white" size={40} /> */}
                 </div>
             </div>
             <div style={styles.section}>
@@ -45,24 +46,24 @@ const Business = () => {
                     <div style={styles.menuItem}><Truck size={20} /> Deliveries</div>
                     <div style={styles.menuItem}><RotateCcw size={20} /> Returns</div>
                     <div style={styles.menuItem}><Gift size={20} /> Smart Rewards</div>
-                    {/* <div style={styles.menuItem}><Target size={20} /> Schemes</div> */}
-                    <Link href={"/dashboard"} style={styles.menuItem}><LayoutDashboard size={20} /> Dashoard </Link>
-                    {/* <div style={styles.menuItem}><Settings size={20} /> Account Settings</div> */}
+                    {role === 'ADMIN' && (
+                        <Link href="/dashboard" style={styles.menuItem}><LayoutDashboard size={20} /> Dashboard</Link>
+                    )}
                 </div>
             </div>
             <div style={styles.supportSection}>
-            <div style={styles.helpText}>Need any help?</div>
-            <div style={styles.supportHotline}>
-                <button style={styles.callButton} onClick={handleButtonClick}>
-                    <Phone size={20} /> Support Hotline
-                </button>
-                {showNumber ? (
-                    <div style={styles.hotlineDetails}>Customer Executive Number: 7024409426</div>
-                ) : (
-                    <div style={styles.hotlineDetails}>Available 24 X 7· Monday to Sunday</div>
-                )}
+                <div style={styles.helpText}>Need any help?</div>
+                <div style={styles.supportHotline}>
+                    <button style={styles.callButton} onClick={handleButtonClick}>
+                        <Phone size={20} /> Support Hotline
+                    </button>
+                    {showNumber ? (
+                        <div style={styles.hotlineDetails}>Customer Executive Number: 7024409426</div>
+                    ) : (
+                        <div style={styles.hotlineDetails}>Available 24 X 7· Monday to Sunday</div>
+                    )}
+                </div>
             </div>
-        </div>
             <div style={styles.logoutSection}>
                 <button style={styles.logoutButton} onClick={handleLogout}><LogOut size={20} /> Logout</button>
             </div>
@@ -74,7 +75,6 @@ const styles = {
     container: {
         fontFamily: 'Arial, sans-serif',
         padding: '1px',
-
     },
     header: {
         display: 'flex',
@@ -120,14 +120,6 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         gap: '10px',
-    },
-    new: {
-        backgroundColor: 'lightgreen',
-        color: 'green',
-        padding: '2px 5px',
-        borderRadius: '3px',
-        fontSize: '12px',
-        marginLeft: 'auto',
     },
     supportSection: {
         marginTop: '20px',
