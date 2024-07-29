@@ -53,12 +53,12 @@ export default function CartCartItem({ cartItem }) {
           <div className="text-green-500">In stock</div>
           <div className="rounded-xl border border-gray-400 flex gap-3 items-center mt-4">
             <button
-              className="border-r border-green-400 py-2 px-3"
+              className="border-r border-green-400 py-2 px-2"
               onClick={() => handleQuantityChange(cartItem.id, -1)}
             >
               <Minus />
             </button>
-            <p className="flex-grow py-2 px-4 text-center">{cartItem.qty}</p>
+            <p className="flex-grow py-2 px-2 text-center">{cartItem.qty}</p>
             <button
               className="border-l border-green-400 py-2 px-2"
               onClick={() => handleQuantityChange(cartItem.id, 1)}
