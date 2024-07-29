@@ -3,31 +3,52 @@ import LargeCard from './LargeCard';
 
 
 export default function LargeCards({sales}) {
-    const totalSales = sales.reduce((acc, item) => acc + item.total, 0).toFixed(2);
-    const today = new Date();
-    const thisWeekStart = new Date(
-        today.getFullYear(),
-        today.getMonth(),
-        today.getDate() - today.getDate()
-    );
+                const today = new Date();
 
-    const thisMonthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+                    // Calculate the start of the current week (assuming Monday is the first day of the week)
+                    const currentDayOfWeek = today.getDay();
+                const thisWeekStart = new Date(today);
+                thisWeekStart.setDate(today.getDate() - currentDayOfWeek + (currentDayOfWeek === 0 ? -6 : 1));
+                    thisWeekStart.setHours(0, 0, 0, 0);
 
-    const todaySales = sales.filter((sale) => {
+                    // Calculate the start of the current month
+                const thisMonthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+
+                // Calculate the end of today (to include sales till the end of the current day)
+            const endOfToday = new Date(today);
+                endOfToday.setHours(23, 59, 59, 999);
+
+                // Total sales
+            const totalSales = sales.reduce((acc, item) => acc + item.total, 0).toFixed(2);
+
+            // Today's sales
+            const todaySales = sales
+        .filter((sale) => {
         const saleDate = new Date(sale.createdAt);
         return saleDate.toDateString() === today.toDateString();
-    }).reduce((acc, sale) => acc + sale.total, 0).toFixed(2);
+    })
+    .reduce((acc, sale) => acc + sale.total, 0)
+    .toFixed(2);
 
-    const thisWeekSales = sales.filter((sale) => {
+            // This week's sales
+            const thisWeekSales = sales
+    .filter((sale) => {
         const saleDate = new Date(sale.createdAt);
-        return saleDate >= thisWeekStart && saleDate <= today;
-    }).reduce((acc, sale) => acc + sale.total, 0).toFixed(2);
+        return saleDate >= thisWeekStart && saleDate <= endOfToday;
+    })
+    .reduce((acc, sale) => acc + sale.total, 0)
+    .toFixed(2);
 
-
-    const thisMonthSales = sales.filter((sale) => {
+            // This month's sales
+            const thisMonthSales = sales
+    .filter((sale) => {
         const saleDate = new Date(sale.createdAt);
-        return saleDate >= thisMonthStart && saleDate <= today;
-    }).reduce((acc, sale) => acc + sale.total, 0).toFixed(2);
+        return saleDate >= thisMonthStart && saleDate <= endOfToday;
+    })
+    .reduce((acc, sale) => acc + sale.total, 0)
+    .toFixed(2);
+
+
 
     const orderStats = [
         {
