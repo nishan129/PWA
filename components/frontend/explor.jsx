@@ -48,7 +48,7 @@ export default function ExploreProduct() {
               {product.discount}% off
               </div>
           )}
-            <Image src={product.imageUrl} alt={product.title} className='w-full object-cover h-40 sm:h-56 md:h-64' width={130}
+            <Image src={product.imageUrl} alt={product.title} className='w-full object-cover h-20 sm:h-32 md:h-32' width={130}
                   height={130} />
           </div>
           </Link>
