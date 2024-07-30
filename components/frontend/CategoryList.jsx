@@ -12,7 +12,7 @@ export default function CategoryList({ categories }) {
     <div>
       {categorie.map((category, index) => (
         <div key={index} className='border border-green-600 rounded-lg  text-slate-800 overflow-hidden mb-4'>
-          <div className="bg-slate-100 dark:bg-slate-100 py-3 px-6 
+          <div className="bg-slate-100 dark:bg-slate-100 py-1 px-6 
           font-semibold border-b border-green-600 dark:border-green-600 text-slate-800 dark:text-slate-800
           flex justify-between items-center">
             <h2>{category.title}</h2>
