@@ -72,7 +72,8 @@ export default function ProductDetailPage({ params: { slug } }) {
               </>
             )}
           </div>
-          <p className="mt-4 text-gray-700">Minimum Wholesale Quantity: 10 {product.packets_box_peti}</p>
+          <h2>Piece Price ₹{product.piece_price}</h2>
+          <p className="mt-1 text-gray-700">Minimum Wholesale Quantity: 10 {product.packets_box_peti}</p>
           <p className="text-gray-700">Per {product.packets_box_peti}: {product.no_piece} pieces</p>
           <div className="flex items-center gap-12 mt-4">
             <button 
