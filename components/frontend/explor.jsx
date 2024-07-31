@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import { addToCart } from '@/redux/slices/cartSlice';
 import { getData } from '@/lib/getData';
 import Link from 'next/link';
+import { nameShortener } from '@/lib/nameShort';
 
 export default function ExploreProduct() {
   const [products, setProducts] = useState([]);
@@ -55,10 +56,10 @@ export default function ExploreProduct() {
           <div className="p-4 flex flex-col justify-between h-1/2">
           <Link href={`/products/${product.slug}`}>
             <div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 ">{product.title}</h3>
+              <h3 className="text-sm font-small text-gray-800 ">{nameShortener(product.title,15)}</h3>
               <div className='justify-between flex'>
               <p className="text-sm text-gray-600 ">{product.unit}</p>
-              <p className="text-sm text-gray-600 ">Packet</p>
+              <p className="text-sm text-gray-600 ">{product.packets_box_peti}</p>
               </div>
               <div className="flex justify-between items-center">
                 <div className="text-lg font-semibold text-slate-800 flex items-baseline">

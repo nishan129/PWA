@@ -22,7 +22,7 @@ export default function BottomNavbar() {
   };
 
   return (
-    <div className="fixed bottom-0 w-full flex justify-around dark:bg-slate-100 bg-slate-100 p-2 shadow-lg z-50">
+    <div className="fixed bottom-0 w-full flex justify-around dark:bg-slate-100 bg-slate-100 p-1 shadow-lg z-50">
       <Link
         href="/"
         onClick={() => handleClick('home')}

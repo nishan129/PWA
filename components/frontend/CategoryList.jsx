@@ -17,7 +17,7 @@ export default function CategoryList({ categories }) {
           flex justify-between items-center">
             <h2>{category.title}</h2>
             <Link href={`/category/${category.slug}`} className='bg-green-600 text-slate-50 rounded-md px-4  
-            py-2 ' > See All</Link>
+            py-2 ' >See All</Link>
           </div>
           <div className='dark:bg-slate-100'>
             <CategoryCarousel products={category.products}/>
