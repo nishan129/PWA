@@ -11,8 +11,8 @@ const renderContent = (activeMarket, markets = []) => {
       {categories.length > 0 ? (
         <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
           {categories.map((category, index) => (
-            <div key={index} className="flex flex-col items-center justify-center p-2 bg-white rounded-lg hover:bg-slate-200">
-              <Link href={`/category/${category.slug}`} className="w-16 text-sm h-16 mb-2 relative hover:bg-green-400">
+            <div key={index} className="flex flex-col items-center justify-center bg-white rounded-lg hover:bg-slate-200">
+              <Link href={`/category/${category.slug}`} className="w-16 text-sm h-16 relative">
                 <img
                   src={category.imageUrl}
                   alt={category.title}
@@ -21,7 +21,7 @@ const renderContent = (activeMarket, markets = []) => {
                   className="rounded-md"
                 />
               </Link>
-              <span className=' text-sm text-center dark:text-slate-800'>{category.title}</span>
+              <span className='text-sm text-center dark:text-slate-800'>{category.title}</span>
             </div>
           ))}
         </div>
