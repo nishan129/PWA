@@ -67,7 +67,7 @@ export default function ProductList({ slug, id }) {
             <Link href={`/products/${product.slug}`} passHref>
               <div>
                 <h3 className="text-sm font-small text-gray-800">
-                  {nameShortener(product.title,15)}</h3>
+                  {nameShortener(product.title,12)}</h3>
                 <div className='justify-between flex'>
                   <p className="text-sm text-gray-600">{product.unit}</p>
                   <p className="text-sm text-gray-600">{product.packets_box_peti}</p>
