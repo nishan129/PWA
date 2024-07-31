@@ -6,10 +6,10 @@ const renderContent = (activeMarket, markets = []) => {
   const categories = activeMarketData?.categories || [];
 
   return (
-    <div className="container mx-auto px-4 bg-slate-50 dark:bg-slate-50 rounded-lg">
+    <div className="container mx-auto bg-slate-50 dark:bg-slate-50 rounded-lg">
       <h2 className="text-2xl font-bold mb-6">Shop by Category</h2>
       {categories.length > 0 ? (
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
           {categories.map((category, index) => (
             <div key={index} className="flex flex-col items-center justify-center bg-white rounded-lg hover:bg-slate-200">
               <Link href={`/category/${category.slug}`} className="w-16 text-sm h-16 relative">
