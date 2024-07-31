@@ -65,7 +65,7 @@ export default function ProductList({ slug, id }) {
             <div className="p-4 flex flex-col justify-between h-1/2">
             <Link href={`/products/${product.slug}`} passHref>
               <div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-800">{product.title}</h3>
+                <h3 className="text-lg sm:text-xl text-gray-800">{product.title}</h3>
                 <div className='justify-between flex'>
                   <p className="text-sm text-gray-600">{product.unit}</p>
                   <p className="text-sm text-gray-600">Packet</p>
