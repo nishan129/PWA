@@ -38,9 +38,12 @@ export default function ProductCard({ product }) {
             <div className="mt-2 flex flex-col items-start">
             <Link href={`/products/${product.slug}`}>
                 <h3 className="text-sm font-small text-gray-900 ">
-                    {nameShortener(product.title,16)}
+                    {nameShortener(product.title,12)}
                 </h3>
-                <p className="text-sm text-gray-600">{product.unit}</p>
+               <div className='justify-between flex'>
+               <p className="text-sm text-gray-600">{product.unit}</p>
+               <p className="text-sm text-gray-600">{product.packets_box_peti}</p>
+               </div>
                 </Link>
                 <Link href={`/products/${product.slug}`}>
                 <div className="text-lg font-semibold text-slate-800 flex items-baseline">
