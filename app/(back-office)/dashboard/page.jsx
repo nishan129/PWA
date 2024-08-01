@@ -4,7 +4,6 @@ import LargeCards from '@/components/backoffice/LargeCards';
 import SmallCards from '@/components/backoffice/SmallCards';
 import DashboardCharts from '@/components/backoffice/DashboardCharts';
 import React from 'react';
-import CustomDataTable from '@/components/backoffice/CustomDataTable';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/authOptions';
 import KiranaDashboard from '@/components/backoffice/KiranaDashboard';
@@ -37,7 +36,7 @@ export default async function page() {
         <DashboardCharts sales={sales} orders={orders}/>
         {/* Recent Orders Table */}
         {/* <CustomDataTable />  */}
-        <OrderDetails  />
+        <OrderDetails sales={sales} orders={orders} />
     </div>
   );
 }
