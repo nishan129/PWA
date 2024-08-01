@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import SmallCard from './SmallCard';
 import { ShoppingCart, CheckCheck, Truck , Loader2} from 'lucide-react';

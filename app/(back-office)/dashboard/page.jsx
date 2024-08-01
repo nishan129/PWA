@@ -1,3 +1,4 @@
+
 import Heading from '@/components/backoffice/Heading';
 import LargeCards from '@/components/backoffice/LargeCards';
 import SmallCards from '@/components/backoffice/SmallCards';
@@ -36,7 +37,7 @@ export default async function page() {
         <DashboardCharts sales={sales} orders={orders}/>
         {/* Recent Orders Table */}
         {/* <CustomDataTable />  */}
-        <OrderDetails />
+        <OrderDetails  />
     </div>
   );
 }
