@@ -40,11 +40,11 @@ const UserOrders = () => {
           order.orderStatus === "PROCESSING" && (
             <div key={order.orderNumber} className="mb-4 border p-4 rounded-md border-green-600">
               <h3 className="text-xl font-bold mb-2">Order Number: {order.orderNumber}</h3>
-              <p className="text-gray-700 mb-2"><strong>Store Name:</strong> {order.storename}</p>
+              {/* <p className="text-gray-700 mb-2"><strong>Store Name:</strong> {order.storename}</p>
               <p className="text-gray-700 mb-2"><strong>Phone Number:</strong> {order.phoneNumber}</p>
               <p className="text-gray-700 mb-2"><strong>Address:</strong> {order.streetAddress}, {order.city}, {order.state}, {order.zipCode}</p>
               <p className="text-gray-700 mb-2"><strong>Payment Method:</strong> {order.paymentMethod}</p>
-              <p className="text-gray-700 mb-2"><strong>Order Status:</strong> {order.orderStatus}</p>
+              <p className="text-gray-700 mb-2"><strong>Order Status:</strong> {order.orderStatus}</p> */}
               <ul>
                 {order.orderItems.map((item) => (
                   <li key={item.id} className="mb-2 flex items-center">

@@ -60,7 +60,7 @@ const SalesInvoice = forwardRef(({ order }, ref) => {
                                
                                 <td className="px-6 py-4">{item.quantity}</td>
                                 <td className="px-6 py-4">₹{item.price}</td>
-                                <td className="px-6 py-4">₹{item.quantity * item.price}</td>
+                                <td className="px-6 py-4">₹{(item.quantity * item.price).toFixed(2)}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -75,7 +75,7 @@ const SalesInvoice = forwardRef(({ order }, ref) => {
                 <div className="flex flex-col">
                     <div className="flex justify-between gap-2">
                         <p>SubTotal</p>
-                        <p>₹{order.orderItems.reduce((total, item) => total + item.quantity * item.price, 0)}</p>
+                        <p>₹{order.orderItems.reduce((total, item) => total + item.quantity * item.price, 0).toFixed(2)}</p>
                     </div>
                     <div className="flex justify-between">
                         <p>Tax</p>
@@ -83,7 +83,7 @@ const SalesInvoice = forwardRef(({ order }, ref) => {
                     </div>
                     <div className="flex justify-between">
                         <p>Total</p>
-                        <p>₹{order.orderItems.reduce((total, item) => total + item.quantity * item.price, 0) + 20}</p>
+                        <p>₹{(order.orderItems.reduce((total, item) => total + item.quantity * item.price, 0) + 20).toFixed(2)}</p>
                     </div>
                 </div>
             </div>
