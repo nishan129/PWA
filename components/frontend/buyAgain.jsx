@@ -24,7 +24,7 @@ const UserOrders = () => {
       id: item.productId,
       title: item.title,
       product_price: item.price,
-      qty: 10, // Default quantity to 1 for repurchase
+      qty: item.quantity, // Default quantity to 1 for repurchase
       discountedPrice: item.price, // Adjust based on your discount logic
       imageUrl: item.imageUrl
     }));
@@ -39,7 +39,7 @@ const UserOrders = () => {
         orders.map((order) => (
           order.orderStatus === "PROCESSING" && (
             <div key={order.orderNumber} className="mb-4 border p-4 rounded-md border-green-600">
-              <h3 className="text-xl font-bold mb-2">Order Number: {order.orderNumber}</h3>
+              <h3 className="text-green-500 font-bold mb-2">Order Number: {order.orderNumber}</h3>
               {/* <p className="text-gray-700 mb-2"><strong>Store Name:</strong> {order.storename}</p>
               <p className="text-gray-700 mb-2"><strong>Phone Number:</strong> {order.phoneNumber}</p>
               <p className="text-gray-700 mb-2"><strong>Address:</strong> {order.streetAddress}, {order.city}, {order.state}, {order.zipCode}</p>
@@ -48,7 +48,7 @@ const UserOrders = () => {
               <ul>
                 {order.orderItems.map((item) => (
                   <li key={item.id} className="mb-2 flex items-center">
-                    <img src={item.imageUrl} alt={item.title} className="w-16 h-16 mr-2" />
+                    <img src={item.imageUrl} alt={item.title} className="w-20 h-16 mr-2" />
                     <span>{item.title} - ₹{item.price} x {item.quantity}</span>
                   </li>
                 ))}
