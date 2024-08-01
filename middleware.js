@@ -1,4 +1,4 @@
-import { withAuth } from "next-auth/middleware"
+import { withAuth } from "next-auth/middleware";
 
 export default withAuth({
   // Matches the pages config in `[...nextauth]`
@@ -7,4 +7,5 @@ export default withAuth({
     // error: "/error",
   },
 });
-export const config = { matcher: ["/dashboard/:path*"] }
+
+export const config = { matcher: ["/dashboard/:path*", "/", "/explore"] };
