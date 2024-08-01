@@ -21,7 +21,7 @@ const renderContent = (activeMarket, markets = []) => {
                   className="rounded-md"
                 />
               </Link>
-              <Link  href={`/category/${category.slug}`} className="w-16 text-sm text-center h-16 relative">
+              <Link  href={`/category/${category.slug}`} className="w-16 text-sm text-center relative">
               <span className='text-sm text-center dark:text-slate-800'>{category.title}</span>
               </Link>
             </div>
