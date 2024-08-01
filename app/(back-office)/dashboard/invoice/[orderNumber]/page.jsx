@@ -1,3 +1,4 @@
+"use client"
 import OrderInvoice from '@/components/backoffice/OrderInvoice'
 import React from 'react'
 
