@@ -1,4 +1,4 @@
-"use client"
+
 import SalesInvoice from "@/components/backoffice/SalesInvoice";
 import React, { useRef } from "react";
 import html2canvas from "html2canvas";

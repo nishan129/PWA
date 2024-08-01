@@ -1,5 +1,4 @@
-"use client";
-import { getData } from '@/lib/getData';
+
 import React from 'react';
 import {convertIsoDateToNormal} from "@/lib/convertisoDatetoNormal";
 import Link from 'next/link';
