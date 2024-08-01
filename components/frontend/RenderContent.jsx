@@ -20,8 +20,8 @@ const renderContent = (activeMarket, markets = []) => {
                   objectFit="contain"
                   className="rounded-md"
                 />
+                <span className='text-sm text-center dark:text-slate-800'>{category.title}</span>
               </Link>
-              <span className='text-sm text-center dark:text-slate-800'>{category.title}</span>
             </div>
           ))}
         </div>
