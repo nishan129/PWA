@@ -4,25 +4,24 @@ import LargeCard from './LargeCard';
 
 export default function LargeCards({sales}) {
                 const today = new Date();
-
-                    // Calculate the start of the current week (assuming Monday is the first day of the week)
-                    const currentDayOfWeek = today.getDay();
+// Calculate the start of the current week (assuming Monday is the first day of the week)
+                const currentDayOfWeek = today.getDay();
                 const thisWeekStart = new Date(today);
                 thisWeekStart.setDate(today.getDate() - currentDayOfWeek + (currentDayOfWeek === 0 ? -6 : 1));
-                    thisWeekStart.setHours(0, 0, 0, 0);
+                thisWeekStart.setHours(0, 0, 0, 0);
 
-                    // Calculate the start of the current month
+                // Calculate the start of the current month
                 const thisMonthStart = new Date(today.getFullYear(), today.getMonth(), 1);
 
                 // Calculate the end of today (to include sales till the end of the current day)
-            const endOfToday = new Date(today);
+                const endOfToday = new Date(today);
                 endOfToday.setHours(23, 59, 59, 999);
 
                 // Total sales
-            const totalSales = sales.reduce((acc, item) => acc + item.total, 0).toFixed(2);
+                const totalSales = sales.reduce((acc, item) => acc + item.total, 0).toFixed(2);
 
-            // Today's sales
-            const todaySales = sales
+                // Today's sales
+                const todaySales = sales
         .filter((sale) => {
         const saleDate = new Date(sale.createdAt);
         return saleDate.toDateString() === today.toDateString();
