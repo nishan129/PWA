@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { Truck, RotateCcw, Gift, Phone, LogOut, LayoutDashboard, BaggageClaim } from 'lucide-react';
+import { Truck, RotateCcw, Gift, Phone, LogOut, LayoutDashboard, BaggageClaim, ChevronRight } from 'lucide-react';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -43,11 +43,28 @@ const Business = () => {
             <div style={styles.section}>
                 <div style={styles.sectionTitle}>Manage Your Business</div>
                 <div style={styles.menu}>
-                    <div style={styles.menuItem}><Truck size={20} /> Deliveries</div>
-                    <div style={styles.menuItem}><RotateCcw size={20} /> Returns</div>
-                    <div style={styles.menuItem}><Gift size={20} /> Smart Rewards</div>
+                <Link href="/deliveries">
+                    <div style={styles.menuItem}>
+                        <Truck size={20} /> 
+                        <span style={styles.menuText}>Deliveries</span> 
+                        <ChevronRight />
+                    </div>
+                    </Link>
+                    <div style={styles.menuItem}>
+                        <RotateCcw size={20} /> 
+                        <span style={styles.menuText}>Returns</span> 
+                        <ChevronRight />
+                    </div>
+                    <div style={styles.menuItem}>
+                        <Gift size={20} /> 
+                        <span style={styles.menuText}>Smart Rewards</span> 
+                        <ChevronRight />
+                    </div>
                     {role === 'ADMIN' && (
-                        <Link href="/dashboard" style={styles.menuItem}><LayoutDashboard size={20} /> Dashboard</Link>
+                        <Link href="/dashboard" style={styles.menuItem}>
+                            <LayoutDashboard size={20} /> 
+                            <span style={styles.menuText}>Dashboard</span>
+                        </Link>
                     )}
                 </div>
             </div>
@@ -80,7 +97,7 @@ const styles = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: 'green', // Changed from red to green
+        backgroundColor: 'green',
         color: 'white',
         padding: '10px',
         borderRadius: '5px',
@@ -119,7 +136,11 @@ const styles = {
         marginBottom: '10px',
         display: 'flex',
         alignItems: 'center',
-        gap: '10px',
+        justifyContent: 'space-between',
+    },
+    menuText: {
+        marginLeft: '10px',
+        flexGrow: 1,
     },
     supportSection: {
         marginTop: '20px',

@@ -73,7 +73,7 @@ export default function ProductDetailPage({ params: { slug } }) {
             )}
           </div>
           <h2>Piece Price ₹{product.piece_price}</h2>
-          <p className="mt-1 text-gray-700">Minimum Wholesale Quantity: 10 {product.packets_box_peti}</p>
+          <p className="mt-1 text-gray-700">Minimum Wholesale Quantity: 1 {product.packets_box_peti}</p>
           <p className="text-gray-700">Per {product.packets_box_peti}: {product.no_piece} pieces</p>
           <div className="flex items-center gap-12 mt-4">
             <button 
@@ -86,7 +86,7 @@ export default function ProductDetailPage({ params: { slug } }) {
               <button 
                 className="border-r border-gray-400 px-2 py-1" 
                 onClick={() => handleQuantityChange(-1)}
-                disabled={quantity <= 10} // Disable when quantity is 10
+                disabled={quantity <= 1} // Disable when quantity is 10
               >
                 <Minus />
               </button>

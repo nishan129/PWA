@@ -16,7 +16,7 @@ const cartSlice = createSlice({
         existingItem.qty += action.payload.quantity || 1; // Use payload quantity if provided
       } else {
         // If the item doesn't exist, add it to the cart
-        const newItem = { id, title, product_price, discount, discountedPrice, qty: action.payload.quantity || 10, imageUrl, vendorId };
+        const newItem = { id, title, product_price, discount, discountedPrice, qty: action.payload.quantity || 1, imageUrl, vendorId };
         state.push(newItem);
       }
       if (typeof window !== "undefined") {
@@ -44,7 +44,7 @@ const cartSlice = createSlice({
     decrementQty: (state, action) => {
       const cartId = action.payload;
       const cartItem = state.find((item) => item.id === cartId);
-      if (cartItem && cartItem.qty > 10) {
+      if (cartItem && cartItem.qty > 1) {
         cartItem.qty -= 1;
         if (typeof window !== "undefined") {
           localStorage.setItem("cart", JSON.stringify(state));
