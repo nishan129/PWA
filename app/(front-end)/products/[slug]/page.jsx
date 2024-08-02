@@ -10,7 +10,7 @@ import ProductImage from '@/components/frontend/ProductImage';
 
 export default function ProductDetailPage({ params: { slug } }) {
   const [product, setProduct] = useState(null);
-  const [quantity, setQuantity] = useState(10);
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function ProductDetailPage({ params: { slug } }) {
   function handleQuantityChange(delta) {
     setQuantity(prevQuantity => {
       const newQuantity = prevQuantity + delta;
-      return Math.max(10, newQuantity); // Ensure quantity does not go below 10
+      return Math.max(1, newQuantity); // Ensure quantity does not go below 10
     });
   }
 
