@@ -50,11 +50,11 @@ export default function ProductDetailPage({ params: { slug } }) {
     <div className="p-4 border">
       <div className="flex flex-col md:flex-row items-start md:items-center">
         <div className="relative w-full md:w-1/2">
-          {product.discountedPrice < product.product_price && (
+          {/* {product.discountedPrice < product.product_price && (
             <div className="absolute top-0 left-0 bg-green-600 text-white text-sm font-semibold px-2 py-1 rounded-b-2xl">
               {discount}% off
             </div>
-          )}
+          )} */}
           <ProductImage productImages={product.productImages} />
         </div>
         
