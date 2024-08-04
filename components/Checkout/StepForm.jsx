@@ -286,8 +286,6 @@ const CustomerList = () => {
           <p><strong>Pincode:</strong> {selectedCustomerData.pinCode}</p>
           <p><strong>City:</strong> {selectedCustomerData.city}</p>
           <p><strong>State:</strong> {selectedCustomerData.state}</p>
-          <p><strong>Latitude:</strong> {selectedCustomerData.latitude}</p>
-          <p><strong>Longitude:</strong> {selectedCustomerData.longitude}</p>
         </div>
       )}
     </div>
