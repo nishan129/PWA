@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCheckoutFormData, setCurrentStep } from '@/redux/slices/checkoutSlice';
 import { useSession } from 'next-auth/react';
+import { MapPin } from 'lucide-react';
 
 const CustomerList = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const userId = session?.user?.id;
   const dispatch = useDispatch();
   const customers = useSelector((state) => state.checkout.checkoutFormData.customers || []);
@@ -19,6 +20,8 @@ const CustomerList = () => {
     pinCode: '',
     city: '',
     state: '',
+    latitude: '',
+    longitude: ''
   });
 
   useEffect(() => {
@@ -29,12 +32,10 @@ const CustomerList = () => {
 
   const handleSelectCustomer = (customerId) => {
     setSelectedCustomer(customerId);
-    console.log('Selected Customer ID:', customerId);
   };
 
   const handleAddCustomer = () => {
     setIsModalOpen(true);
-    console.log('Add Customer button clicked');
   };
 
   const handleSaveCustomer = () => {
@@ -42,8 +43,6 @@ const CustomerList = () => {
     const updatedCustomers = [customerToAdd, ...customers];
     dispatch(updateCheckoutFormData({ customers: updatedCustomers }));
     setSelectedCustomer(customerToAdd.id);
-
-    console.log('New Customer Added:', customerToAdd);
 
     setIsModalOpen(false);
     setNewCustomer({
@@ -53,6 +52,8 @@ const CustomerList = () => {
       pinCode: '',
       city: '',
       state: '',
+      latitude: '',
+      longitude: ''
     });
   };
 
@@ -66,22 +67,63 @@ const CustomerList = () => {
 
   const handleDeliverHere = () => {
     if (selectedCustomer) {
-      console.log('Deliver Here clicked with Customer ID:', selectedCustomer);
       dispatch(setCurrentStep(2));
-    } else {
-      console.log('No customer selected');
     }
   };
 
   const getSelectedCustomerData = () => {
-    if (!selectedCustomer) return null;
-    return customers.find(customer => customer.id === selectedCustomer);
+    return customers.find(customer => customer.id === selectedCustomer) || {};
+  };
+
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+
+  const showPosition = (position) => {
+    const { latitude, longitude } = position.coords;
+
+    // Placeholder values for example purposes
+    const exampleAddress = "123 Main St";
+    const exampleCity = "City";
+    const exampleState = "State";
+    const examplePinCode = "123456";
+
+    setNewCustomer(prevState => ({
+      ...prevState,
+      address: exampleAddress,
+      city: exampleCity,
+      state: exampleState,
+      pinCode: examplePinCode,
+      latitude: latitude.toString(),
+      longitude: longitude.toString()
+    }));
+  };
+
+  const showError = (error) => {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        alert("User denied the request for Geolocation.");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        alert("The request to get user location timed out.");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("An unknown error occurred.");
+        break;
+    }
   };
 
   const selectedCustomerData = getSelectedCustomerData();
 
   return (
-    <div className="max-w-3xl p-4  bg-white border border-green-600 shadow-lg">
+    <div className="max-w-3xl p-4 bg-white border border-green-600 shadow-lg">
       <button
         onClick={handleAddCustomer}
         className="mb-4 px-4 py-2 bg-green-600 text-white rounded"
@@ -92,7 +134,7 @@ const CustomerList = () => {
         {customers.map((customer) => (
           <li
             key={customer.id}
-            className="mb-4 p-4 border  border-gray-300 rounded flex items-center justify-between"
+            className="mb-4 p-4 border border-gray-300 rounded flex items-center justify-between"
           >
             <div>
               <input
@@ -130,19 +172,18 @@ const CustomerList = () => {
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-md shadow-lg">
-            <h2 className="text-xl font-bold mb-4">Add New Customer</h2>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSaveCustomer();
               }}
             >
-              <div className="">
-                <label className="block text-gray-700 ">Store Name</label>
+              <div className="mb-4">
+                <label className="block text-gray-700">Store Name</label>
                 <input
                   type="text"
                   className="w-full px-3 py-2 border border-gray-300 rounded"
-                  value={newCustomer.storename}
+                  placeholder={newCustomer.storename}
                   onChange={(e) =>
                     setNewCustomer({ ...newCustomer, storename: e.target.value })
                   }
@@ -154,7 +195,7 @@ const CustomerList = () => {
                 <input
                   type="tel"
                   className="w-full px-3 py-2 border border-gray-300 rounded"
-                  value={newCustomer.phone}
+                  placeholder={newCustomer.phone}
                   onChange={(e) =>
                     setNewCustomer({ ...newCustomer, phone: e.target.value })
                   }
@@ -166,7 +207,7 @@ const CustomerList = () => {
                 <input
                   type="text"
                   className="w-full px-3 py-2 border border-gray-300 rounded"
-                  value={newCustomer.pinCode}
+                  placeholder={newCustomer.pinCode}
                   onChange={(e) =>
                     setNewCustomer({ ...newCustomer, pinCode: e.target.value })
                   }
@@ -178,7 +219,7 @@ const CustomerList = () => {
                 <input
                   type="text"
                   className="w-full px-3 py-2 border border-gray-300 rounded"
-                  value={newCustomer.state}
+                  placeholder={newCustomer.state}
                   onChange={(e) =>
                     setNewCustomer({ ...newCustomer, state: e.target.value })
                   }
@@ -190,7 +231,7 @@ const CustomerList = () => {
                 <input
                   type="text"
                   className="w-full px-3 py-2 border border-gray-300 rounded"
-                  value={newCustomer.city}
+                  placeholder={newCustomer.city}
                   onChange={(e) =>
                     setNewCustomer({ ...newCustomer, city: e.target.value })
                   }
@@ -202,14 +243,21 @@ const CustomerList = () => {
                 <input
                   type="text"
                   className="w-full px-3 py-2 border border-gray-300 rounded"
-                  value={newCustomer.address}
+                  placeholder={newCustomer.address}
                   onChange={(e) =>
                     setNewCustomer({ ...newCustomer, address: e.target.value })
                   }
                   required
                 />
               </div>
-              <div className="flex justify-end">
+              <div className="flex justify-between">
+                <button
+                  type="button"
+                  onClick={getUserLocation}
+                  className="px-4 py-2 bg-blue-500 text-white rounded mr-2 hover:bg-blue-600"
+                >
+                  <MapPin />
+                </button>
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
@@ -238,6 +286,8 @@ const CustomerList = () => {
           <p><strong>Pincode:</strong> {selectedCustomerData.pinCode}</p>
           <p><strong>City:</strong> {selectedCustomerData.city}</p>
           <p><strong>State:</strong> {selectedCustomerData.state}</p>
+          <p><strong>Latitude:</strong> {selectedCustomerData.latitude}</p>
+          <p><strong>Longitude:</strong> {selectedCustomerData.longitude}</p>
         </div>
       )}
     </div>

@@ -189,6 +189,8 @@ model Order {
   city           String
   state        String
   zipCode        String
+  latitude        Float?
+  longitude        Float?
   shippingCost   Float?
   // Payment Method
   paymentMethod  String

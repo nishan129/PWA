@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { removeFromCart, incrementQty, decrementQty } from '@/redux/slices/cartSlice';
 import toast from 'react-hot-toast';
+import { nameShortener } from '@/lib/nameShort';
 
 export default function CartCartItem({ cartItem }) {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export default function CartCartItem({ cartItem }) {
           className="w-20 h-20 object-cover"
         />
         <div className="ml-4">
-          <h2 className="text-lg font-semibold">{cartItem.title}</h2>
+          <h2 className="text-lg font-semibold">{nameShortener(cartItem.title,18)}</h2>
           {cartItem.discount && (
             <div className="text-green-600 text-xs">
               {cartItem.discount}% Discount <span className="text-xs">Limited time deal</span>
