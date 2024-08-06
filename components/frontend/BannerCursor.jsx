@@ -28,7 +28,7 @@ const BannerCursor = React.memo(({ activeMarket, markets = [] }) => {
                             width={5000} // Set default width
                             height={600} // Set default height
                             loading="lazy"
-                            className='w-full h-full'
+                            className='w-full h-full rounded-md'
                         />
                     ))
                 ) : (
