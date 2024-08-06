@@ -1,38 +1,43 @@
 import React from 'react';
-import { Carousel } from 'nuka-carousel';  // Ensure that 'nuka-carousel' is correctly installed and imported
+import { Carousel } from 'nuka-carousel'; // Ensure 'nuka-carousel' is correctly installed and imported
+import Image from 'next/image';
 
-const images = [
-  "https://th.bing.com/th/id/OIP.UX73HEX01x5FQEnCzm9fGAFaC0?rs=1&pid=ImgDetMain",
-  "https://th.bing.com/th/id/OIP.UX73HEX01x5FQEnCzm9fGAFaC0?rs=1&pid=ImgDetMain",
-  "https://th.bing.com/th/id/OIP.UX73HEX01x5FQEnCzm9fGAFaC0?rs=1&pid=ImgDetMain",
-  "https://th.bing.com/th/id/OIP.UX73HEX01x5FQEnCzm9fGAFaC0?rs=1&pid=ImgDetMain",
-  "https://th.bing.com/th/id/OIP.UX73HEX01x5FQEnCzm9fGAFaC0?rs=1&pid=ImgDetMain"
-];
+const BannerCursor = React.memo(({ activeMarket, markets = [] }) => {
+    // Find the active market data based on the activeMarket title
+    const activeMarketData = markets.find(market => market.title === activeMarket);
+    // Extract banners from the active market data or default to an empty array
+    const banners = activeMarketData?.banners || [];
 
-const BannerCursor = React.memo(() => {
-  return (
-    <div className="mt-2 lg:mt-12">
-        <Carousel
-      wrapAround
-      autoplay
-      dots
-      showDots
-      autoplayInterval={6500}
-      pauseOnHover
-      speed={100}
-    >
-      {images.map((src, index) => (
-        <img
-          key={index}
-          src={src}
-          alt={`banner-${index}`}
-          loading="lazy"
-          style={{ width: '100%', height: 'auto' }}
-        />
-      ))}
-    </Carousel>
-    </div>
-  );
+    return (
+        <div className="mt-2 lg:mt-12">
+            <Carousel
+                wrapAround
+                autoplay
+                dots
+                showDots
+                autoplayInterval={6500}
+                pauseOnHover
+                speed={300} // Adjust speed for smoother transitions
+            >
+                {banners.length > 0 ? (
+                    banners.map((banner, index) => (
+                        <Image
+                            key={index}
+                            src={banner.imageUrl} // Fallback image if URL is undefined
+                            alt={`Banner ${index}`} // Provide a meaningful alt text
+                            width={2000} // Set default width
+                            height={600} // Set default height
+                            loading="lazy"
+                            style={{ width: '100%', height: 'auto' }}
+                    
+                        />
+                    ))
+                ) : (
+                    <p>No banners available</p> // Display a message if no banners are present
+                )}
+            </Carousel>
+        </div>
+    );
 });
 
 export default BannerCursor;

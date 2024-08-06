@@ -20,8 +20,10 @@ model Coupon {
 model Banner {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   title     String
-  link      String?
+  discount      String?
   imageUrl  String?
+  marketId    String @db.ObjectId
+  market      Market @relation(fields: [marketId], references: [id])
   isActive  Boolean
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -53,7 +55,7 @@ model Market {
   isActive    Boolean
   
   categories  Category[] 
-
+  banners     Banner[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime? @updatedAt
 }
@@ -189,8 +191,6 @@ model Order {
   city           String
   state        String
   zipCode        String
-  latitude        Float?
-  longitude        Float?
   shippingCost   Float?
   // Payment Method
   paymentMethod  String

@@ -1,12 +1,14 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import renderContent from '@/components/frontend/RenderContent';
 import Hero from '@/components/frontend/Hero';
 import CategoryList from '@/components/frontend/CategoryList';
-import Link from 'next/link';
 import { getData } from '@/lib/getData';
 import { getSession } from 'next-auth/react';
 import BannerCursor from '@/components/frontend/BannerCursor';
+
+// Dynamically import the BannerCursor component
 
 export default function Home() {
   const [markets, setMarkets] = useState([]);
@@ -39,7 +41,9 @@ export default function Home() {
     <div className="min-h-screen py-20">
       <Hero onMarketClick={handleMarketClick} markets={markets} />
       {/* Render content based on activeMarket */}
-      <BannerCursor />
+      {markets.length > 0 && (
+          <BannerCursor activeMarket={activeMarket} markets={markets} />
+      )}
       {renderContent(activeMarket, markets)}
       
       {markets.length > 0 && markets.map((market, index) => (

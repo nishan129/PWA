@@ -39,6 +39,7 @@ export async function GET(request){
             products: true, // Include all products within each category
           },
         },
+        banners:true
       },
       })
       return NextResponse.json(markets)

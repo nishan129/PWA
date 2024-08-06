@@ -39,8 +39,8 @@ export default function ProductImage({ productImages }) {
       containerClass="carousel-container"
       removeArrowOnDeviceType={["tablet", "mobile"]}
       deviceType={true}
-      dotListClass="custom-dot-list-style px-8"
-      itemClass="carousel-item-padding-40-px relative text-green-500"
+      dotListClass="custom-dot-list-style"
+      itemClass="carousel-item-padding-40-px"
       >
         {productImages.map((image, index) => (
           <div key={index} className="relative text-green-500">
@@ -49,7 +49,7 @@ export default function ProductImage({ productImages }) {
               alt={`Product Image`}
               height={150}
               width={150}
-              className="w-full h-64 relative text-green-500"
+              className="w-full h-64 "
             />
           </div>
         ))}
