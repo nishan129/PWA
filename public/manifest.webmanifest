@@ -1,7 +1,7 @@
 {
     "theme_color": "#86EFAC",
     "background_color": "#86EFAC",
-    "display": "standalone",
+    "display": "minimal-ui",
     "scope": "/",
     "start_url": "/",
     "name": "Loksell",
