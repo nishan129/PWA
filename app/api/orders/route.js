@@ -18,7 +18,7 @@ function generateOrderNumber(length) {
 export async function POST(request) {
   try {
     const { checkoutFormData, orderItems } = await request.json();
-    const {longitude ,latitude, address, city, phone, pinCode, state, storename, userId } = checkoutFormData.customers[0];
+    const {address, city, phone, pinCode, state, storename, userId } = checkoutFormData.customers[0];
     const { paymentMethod } = checkoutFormData;
 
     // Prisma transaction for creating order, order items, and sales
@@ -29,8 +29,8 @@ export async function POST(request) {
           storename,
           phoneNumber: phone,
           streetAddress: address,
-          longitude:parseFloat(longitude),
-          latitude:parseFloat(latitude),
+          // longitude:parseFloat(longitude),
+          // latitude:parseFloat(latitude),
           city,
           state,
           zipCode: pinCode,
