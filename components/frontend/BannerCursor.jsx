@@ -25,11 +25,10 @@ const BannerCursor = React.memo(({ activeMarket, markets = [] }) => {
                             key={index}
                             src={banner.imageUrl} // Fallback image if URL is undefined
                             alt={`Banner ${index}`} // Provide a meaningful alt text
-                            width={2000} // Set default width
+                            width={5000} // Set default width
                             height={600} // Set default height
                             loading="lazy"
-                            style={{ width: '100%', height: 'auto' }}
-                    
+                            className='w-full h-full'
                         />
                     ))
                 ) : (
