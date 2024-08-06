@@ -1,6 +1,7 @@
 import React from 'react';
 import { Carousel } from 'nuka-carousel'; // Ensure 'nuka-carousel' is correctly installed and imported
 import Image from 'next/image';
+import Link from 'next/link';
 
 const BannerCursor = React.memo(({ activeMarket, markets = [] }) => {
     // Find the active market data based on the activeMarket title
@@ -9,7 +10,7 @@ const BannerCursor = React.memo(({ activeMarket, markets = [] }) => {
     const banners = activeMarketData?.banners || [];
 
     return (
-        <div className="mt-2 lg:mt-12">
+        <div className="mt-2 lg:mt-12 h-full w-full">
             <Carousel
                 wrapAround
                 autoplay
@@ -18,18 +19,23 @@ const BannerCursor = React.memo(({ activeMarket, markets = [] }) => {
                 autoplayInterval={6500}
                 pauseOnHover
                 speed={300} // Adjust speed for smoother transitions
+                className='rounded-lg overflow-hidden h-full w-full'
             >
                 {banners.length > 0 ? (
                     banners.map((banner, index) => (
+                    <Link href={`/discount/${banner.discount}`} key={index}>
+                  <div className="w-screen h-48">
                         <Image
                             key={index}
                             src={banner.imageUrl} // Fallback image if URL is undefined
                             alt={`Banner ${index}`} // Provide a meaningful alt text
                             width={5000} // Set default width
                             height={600} // Set default height
-                            loading="lazy"
-                            className='w-full h-full rounded-md'
+                            // loading="lazy"
+                            className='w-full h-full '
                         />
+                        </div>
+                    </Link> 
                     ))
                 ) : (
                     <p>No banners available</p> // Display a message if no banners are present
