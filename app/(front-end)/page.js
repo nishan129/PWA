@@ -9,7 +9,7 @@ import { getSession } from 'next-auth/react';
 
 export default function Home() {
   const [markets, setMarkets] = useState([]);
-  const [activeMarket, setActiveMarket] = useState('FMGC');
+  const [activeMarket, setActiveMarket] = useState('FMCG');
   const [session, setSession] = useState(null);
 
   useEffect(() => {

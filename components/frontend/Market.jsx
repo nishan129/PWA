@@ -5,7 +5,7 @@ import { getData } from '@/lib/getData';
 
 export default function MarketPage({ onMarketClick , markets}) {
 
-  const [activeMarket, setActiveMarket] = useState('FMGC');
+  const [activeMarket, setActiveMarket] = useState('FMCG');
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleClick = (market) => {
