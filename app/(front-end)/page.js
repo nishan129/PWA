@@ -6,6 +6,7 @@ import CategoryList from '@/components/frontend/CategoryList';
 import Link from 'next/link';
 import { getData } from '@/lib/getData';
 import { getSession } from 'next-auth/react';
+import BannerCursor from '@/components/frontend/BannerCursor';
 
 export default function Home() {
   const [markets, setMarkets] = useState([]);
@@ -35,9 +36,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen py-28">
+    <div className="min-h-screen py-20">
       <Hero onMarketClick={handleMarketClick} markets={markets} />
       {/* Render content based on activeMarket */}
+      <BannerCursor />
       {renderContent(activeMarket, markets)}
       
       {markets.length > 0 && markets.map((market, index) => (

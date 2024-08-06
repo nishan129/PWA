@@ -49,7 +49,7 @@ export default function SearchMa() {
   return (
     <div className={`fixed inset-0 bg-white z-50 p-4 overflow-auto ${isSearching ? 'top-0' : ''}`}>
       <form className="flex items-center">
-        <button onClick={handleHomeRedirect} className="mr-2 text-gray-500 hover:text-gray-700">
+        <button onClick={handleHomeRedirect} className="mr-2 text-gray-500 ">
           <ArrowLeft className="w-6 h-6" />
         </button>
         <label htmlFor="voice-search" className="sr-only">
@@ -57,12 +57,12 @@ export default function SearchMa() {
         </label>
         <div className="relative w-full">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <Search className="w-4 h-4 text-gray-500" />
+            <Search className="w-4 h-4 border-green-600" />
           </div>
           <input
             type="text"
             id="voice-search"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full pl-10 p-2.5"
+            className=" border border-green-600  text-sm rounded-lg  w-full pl-10 p-2.5"
             placeholder="Search Products..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
