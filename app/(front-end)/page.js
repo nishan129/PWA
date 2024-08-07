@@ -7,6 +7,7 @@ import CategoryList from '@/components/frontend/CategoryList';
 import { getData } from '@/lib/getData';
 import { getSession } from 'next-auth/react';
 import BannerCursor from '@/components/frontend/BannerCursor';
+import Banner from '@/components/frontend/Banner';
 
 // Dynamically import the BannerCursor component
 
@@ -53,6 +54,8 @@ export default function Home() {
           </div>
         )
       ))}
+
+      <Banner />
     </div>
   );
 }
