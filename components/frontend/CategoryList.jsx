@@ -17,7 +17,7 @@ export default function CategoryList({ categories }) {
           font-semibold  text-slate-800 dark:text-slate-800
           flex justify-between items-center">
             <h2>{category.title}</h2>
-            <Link href={`/category/${category.slug}`} className=' text-green-500 rounded-full px-1 py-1' >
+            <Link href={`/category/${category.slug}`} className='bg-green-600 text-slate-50 rounded-full px-1 py-1' >
             <ChevronRight /></Link>
           </div>
           <div className='dark:bg-slate-100'>
