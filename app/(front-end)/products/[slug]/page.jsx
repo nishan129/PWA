@@ -36,7 +36,7 @@ export default function ProductDetailPage({ params: { slug } }) {
   function handleQuantityChange(delta) {
     setQuantity(prevQuantity => {
       const newQuantity = prevQuantity + delta;
-      return Math.max(1, newQuantity); // Ensure quantity does not go below 10
+      return Math.max(1, newQuantity); // Ensure quantity does not go below 1
     });
   }
 
@@ -49,15 +49,9 @@ export default function ProductDetailPage({ params: { slug } }) {
   return (
     <div className="p-4 border">
       <div className="flex flex-col md:flex-row items-start md:items-center">
-        <div className="relative w-full md:w-1/2">
-          {/* {product.discountedPrice < product.product_price && (
-            <div className="absolute top-0 left-0 bg-green-600 text-white text-sm font-semibold px-2 py-1 rounded-b-2xl">
-              {discount}% off
-            </div>
-          )} */}
+        <div className="w-full md:w-1/2">
           <ProductImage productImages={product.productImages} />
         </div>
-        
         <div className="w-full md:w-1/2 p-4">
           <div className="flex justify-between">
             <h2 className="text-2xl font-bold text-gray-800">{product.title}</h2>
@@ -86,7 +80,7 @@ export default function ProductDetailPage({ params: { slug } }) {
               <button 
                 className="border-r border-gray-400 px-2 py-1" 
                 onClick={() => handleQuantityChange(-1)}
-                disabled={quantity <= 1} // Disable when quantity is 10
+                disabled={quantity <= 1}
               >
                 <Minus />
               </button>

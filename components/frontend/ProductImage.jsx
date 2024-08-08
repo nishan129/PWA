@@ -1,20 +1,20 @@
-
-import { Carousel } from 'flowbite-react';
+"use client";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import Image from 'next/image';
 import React from 'react';
 
 export default function ProductImage({ productImages }) {
-  console.log(productImages)
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-      slidesToSlide: 1,
+      items: 4,
+      slidesToSlide: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 1,
-      slidesToSlide: 1,
+      items: 3,
+      slidesToSlide: 2,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -24,35 +24,34 @@ export default function ProductImage({ productImages }) {
   };
 
   return (
-      <Carousel
-      swipeable={true}
-      draggable={true}
-      showDots={true}
+    <Carousel
+      swipeable
+      draggable
       responsive={responsive}
-      ssr={true} // means to render carousel on server-side.
-      infinite={true}
-      autoPlay={true}
-      autoPlaySpeed={1000}
-      keyBoardControl={true}
-      customTransition="all .5"
+      ssr
+      infinite
+      autoPlay
+      autoPlaySpeed={5000}
+      showDots
+      keyBoardControl
       transitionDuration={500}
       containerClass="carousel-container"
       removeArrowOnDeviceType={["tablet", "mobile"]}
-      deviceType={true}
       dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-40-px"
-      >
-        {productImages.map((image, index) => (
-          <div key={index} className="relative text-green-500">
-            <Image
-              src={image}
-              alt={`Product Image`}
-              height={150}
-              width={150}
-              className="w-full h-64 "
-            />
-          </div>
-        ))}
-      </Carousel>
+      itemClass="px-2"
+    >
+      {productImages.map((image, index) => (
+        <div key={index} className="relative">
+          <Image
+            src={image}
+            alt={`Product Image ${index + 1}`}
+            height={300}
+            width={300}
+            className="w-full h-60 object-cover"
+            priority // Ensure the images load quickly
+          />
+        </div>
+      ))}
+    </Carousel>
   );
 }

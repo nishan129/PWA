@@ -12,14 +12,9 @@ const BannerCursor = React.memo(({ activeMarket, markets = [] }) => {
     return (
         <div className="mt-2 lg:mt-12 h-full w-full">
             <Carousel
-                wrapAround
                 autoplay
-                dots
-                showDots
-                autoplayInterval={6500}
-                pauseOnHover
-                speed={300} // Adjust speed for smoother transitions
                 className='rounded-lg overflow-hidden h-full w-full'
+                wrapAround
             >
                 {banners.length > 0 ? (
                     banners.map((banner, index) => (
