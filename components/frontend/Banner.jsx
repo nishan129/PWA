@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import banner from "../../public/banner.jpg";
+import banner from "../../public/banner.png";
 import ExploreProduct from './explor';
 
 export default function Banner() {

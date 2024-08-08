@@ -28,7 +28,7 @@ const renderContent = (activeMarket, markets = []) => {
           ))}
         </div>
       ) : (
-        <div>Select a market to see items.</div>
+        <div>Loding....</div>
       )}
     </div>
   );
