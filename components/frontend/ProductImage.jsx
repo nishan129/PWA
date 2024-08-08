@@ -47,7 +47,7 @@ export default function ProductImage({ productImages }) {
             alt={`Product Image ${index + 1}`}
             height={300}
             width={300}
-            className="w-full h-60 object-cover"
+            className="w-full h-auto object-cover"
             priority // Ensure the images load quickly
           />
         </div>

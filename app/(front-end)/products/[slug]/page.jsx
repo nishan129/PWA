@@ -47,7 +47,7 @@ export default function ProductDetailPage({ params: { slug } }) {
   const discount = Math.round((1 - product.discountedPrice / product.product_price) * 100);
 
   return (
-    <div className="p-4 border">
+    <div className="p-4 bg-white border">
       <div className="flex flex-col md:flex-row items-start md:items-center">
         <div className="w-full md:w-1/2">
           <ProductImage productImages={product.productImages} />

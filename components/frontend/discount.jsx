@@ -41,7 +41,7 @@ export default function DiscountProducts({ discount }) {
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-6">
       {discountedProducts.length > 0 ? (
         discountedProducts.map((product) => (
-          <div key={product.id} className="border bg-slate-50 flex flex-col shadow-md rounded-lg hover:shadow-lg">
+          <div key={product.id} className="border bg-white flex flex-col shadow-md rounded-lg hover:shadow-lg">
             <Link href={`/products/${product.slug}`}>
               <div className='relative'>
                 {product.discount && (
@@ -49,13 +49,15 @@ export default function DiscountProducts({ discount }) {
                     {product.discount}% off
                   </div>
                 )}
+                <div className='ml-12 justify-between items-center w-20 h-20 sm:h-32 md:h-32'>
                 <Image
                   src={product.imageUrl}
                   alt={product.title}
-                  className='w-full object-cover h-20 sm:h-32 md:h-32'
+                  className='object-cover w-full h-full'
                   width={130}
                   height={130}
                 />
+                </div>
               </div>
             </Link>
             <div className="p-4 flex flex-col justify-between h-1/2">
