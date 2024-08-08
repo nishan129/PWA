@@ -49,8 +49,10 @@ export default function ExploreProduct() {
               {product.discount}% off
               </div>
           )}
-            <Image src={product.imageUrl} alt={product.title} className='w-full   h-20 sm:h-32 md:h-32' width={130}
+          <div className='ml-12 justify-between items-center w-20 h-20 sm:h-32 md:h-32'>
+            <Image src={product.imageUrl} alt={product.title} width={130} className='object-cover w-full h-full'
                   height={130} />
+                  </div>
           </div>
           </Link>
           <div className="p-4 flex flex-col justify-between h-1/2">

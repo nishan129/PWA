@@ -26,13 +26,15 @@ export default function ProductCard({ product }) {
                         {product.discount}% off
                     </div>
                 )}
+            <div className='ml-4 justify-between rounded-lg items-center w-20 h-20 sm:h-32 md:h-32'>
                 <Image
                     src={product.imageUrl}
                     alt={product.title}
                     width={130}
                     height={130}
-                    className="rounded-lg w-full h-20"
+                    className="object-cover w-full h-full"
                 />
+                </div>
             </div>
             </Link>
             <div className="mt-2 flex flex-col items-start">
