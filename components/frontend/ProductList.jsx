@@ -54,13 +54,15 @@ export default function ProductList({ slug, id }) {
                     {product.discount}% off
                   </div>
                 )}
+                <div className='ml-12 justify-between items-center w-20 h-20 sm:h-32 md:h-32'>
                 <Image
                   src={product.imageUrl}
                   alt={product.title}
-                  className='w-full object-cover h-20 sm:h-32 md:h-32'
+                  className='object-cover w-full h-full'
                   width={130}
                   height={130}
                 />
+                </div>
               </div>
             </Link>
             <div className="p-4 flex flex-col justify-between h-1/2">

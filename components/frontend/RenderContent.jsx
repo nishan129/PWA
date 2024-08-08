@@ -18,7 +18,7 @@ const renderContent = (activeMarket, markets = []) => {
                   alt={category.title}
                   layout="fill"
                   objectFit="contain"
-                  className="rounded-md"
+                  className="rounded-md w-16 h-12"
                 />
               </Link>
               <Link  href={`/category/${category.slug}`} className="w-16 text-sm text-center relative">
