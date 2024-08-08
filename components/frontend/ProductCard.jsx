@@ -31,7 +31,7 @@ export default function ProductCard({ product }) {
                     alt={product.title}
                     width={130}
                     height={130}
-                    className="object-cover rounded-lg w-full h-20"
+                    className="rounded-lg w-full h-20"
                 />
             </div>
             </Link>

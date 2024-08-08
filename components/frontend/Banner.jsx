@@ -12,7 +12,7 @@ export default function Banner() {
 
     return (
         <div>
-            <div onClick={handleClick}>
+            <div onClick={handleClick} className='mb-2'>
                 <Image 
                     src={banner}
                     className='rounded-lg'
