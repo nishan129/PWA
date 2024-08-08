@@ -41,7 +41,7 @@ export default function ExploreProduct() {
         const showDiscount = product.discount > 0;
 
         return (
-          <div key={product.id} className="border bg-slate-50  flex flex-col shadow-md rounded-lg  hover:shadow-lg">
+          <div key={product.id} className="border bg-white  flex flex-col shadow-md rounded-lg  hover:shadow-lg">
             <Link href={`/products/${product.slug}`}>
           <div className='relative'>
           {showDiscount && (

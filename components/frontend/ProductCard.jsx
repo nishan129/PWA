@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
     const showDiscount = product.discount > 0;
 
     return (
-        <div className="border bg-slate-50 flex flex-col shadow-2xl rounded-lg p-2 w-full ">
+        <div className="border bg-white flex flex-col shadow-2xl rounded-lg p-2 w-full ">
              <Link href={`/products/${product.slug}`}>
             <div className="relative">
                 {showDiscount && (
