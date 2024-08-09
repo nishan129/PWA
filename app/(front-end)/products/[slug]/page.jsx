@@ -50,13 +50,14 @@ export default function ProductDetailPage({ params: { slug } }) {
     <div className="p-4 bg-white border">
       <div className="flex flex-col md:flex-row items-start md:items-center">
         <div className="w-full md:w-1/2">
-          <ProductImage productImages={product.productImages} />
-        </div>
-        <div className="w-full md:w-1/2 p-4">
-          <div className="flex justify-between">
+        <div className="flex justify-between">
             <h2 className="text-2xl font-bold text-gray-800">{product.title}</h2>
             <h2>{product.unit}</h2>
           </div>
+          <ProductImage productImages={product.productImages} />
+        </div>
+        <div className="w-full md:w-1/2 p-4">
+         
           <div className="mt-2 gap-2 flex items-center">
             <span className="text-2xl font-semibold text-gray-900">₹{product.discountedPrice}</span>
             {product.product_price > product.discountedPrice && (
