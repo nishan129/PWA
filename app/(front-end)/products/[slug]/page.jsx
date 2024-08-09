@@ -87,24 +87,24 @@ export default function ProductDetailPage({ params: { slug } }) {
           <p className="text-gray-700">
             Per {product.packets_box_peti}: {product.no_piece} pieces
           </p>
-          <div className="flex items-center justify-between gap-12 mt-4">
+          <div className="flex items-center justify-between gap-10 mt-4">
             <button
               className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200"
               onClick={handleAddToCart}
             >
               Add to Cart
             </button>
-            <div className="flex items-center border border-green-400 rounded-lg">
+            <div className="flex items-center justify-between border border-green-400 rounded-lg">
               <button
-                className="border-r border-gray-400 px-2 py-1 w-8 flex justify-center"
+                className="border-r border-gray-400 px-1 py-1 w-8 flex justify-center"
                 onClick={() => handleQuantityChange(-1)}
                 disabled={quantity <= 1}
               >
                 <Minus />
               </button>
-              <span className="px-4 py-2 w-8 text-start">{quantity}</span>
+              <span className="px-4 py-2 w-8 mr-3 justify-center">{quantity}</span>
               <button
-                className="border-l border-gray-400 px-2 py-1 w-8 flex justify-center"
+                className="border-l border-gray-400 px-1 py-1 w-8 flex justify-center"
                 onClick={() => handleQuantityChange(1)}
               >
                 <Plus />
