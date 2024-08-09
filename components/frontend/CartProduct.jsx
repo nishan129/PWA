@@ -24,7 +24,7 @@ export default function CartCartItem({ cartItem }) {
   }
 
   return (
-    <div className="border border-green-600 bg-slate-50 dark:bg-slate-50 rounded-md p-4 mb-4 shadow-lg">
+    <div className="border border-green-600 bg-white dark:bg-white rounded-md p-4 mb-4 shadow-lg">
       <input
           type="checkbox"
           className="mr-4 text-green-500 border-green-400"
