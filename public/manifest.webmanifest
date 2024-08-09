@@ -1,11 +1,12 @@
 {
-    "theme_color": "#27f73b",
-    "background_color": "#86EFAC",
+    "theme_color": "#86EFAC",
+    "background_color": "#27f73b",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "name": "Loksell",
     "short_name": "Loksell",
+    "description": "Making distribution as easy as pie",
     "icons": [
         {
             "src": "/icon-192x192.png",
