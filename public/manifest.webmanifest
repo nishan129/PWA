@@ -1,7 +1,7 @@
 {
     "theme_color": "#86EFAC",
     "background_color": "#27f73b",
-    "display": "minimal-ui",
+    "display": "fullscreen",
     "scope": "/",
     "start_url": "/",
     "name": "Loksell",
