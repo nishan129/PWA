@@ -64,7 +64,7 @@ export default function ProductDetailPage({ params: { slug } }) {
           </div>
           <ProductImage productImages={product.productImages} />
         </div>
-        <div className="w-full md:w-1/2 p-4 border">
+        <div className="w-full md:w-1/2 p-4">
           <div className="mt-2 gap-2 flex items-center">
             <span className="text-2xl font-semibold text-gray-900">
               ₹{product.discountedPrice}
@@ -115,14 +115,14 @@ export default function ProductDetailPage({ params: { slug } }) {
       </div>
       <div className="border-b border-green-500 w-full mt-4">
         <h3
-          className="text-xl flex justify-between font-semibold text-gray-800 cursor-pointer"
+          className="text-xl flex border-b border-gray-500 justify-between font-semibold text-gray-800 cursor-pointer"
           onClick={() => setShowDescription(!showDescription)}
         >
           Product Description{" "}
           {showDescription ? <ChevronUp /> : <ChevronDown />}
         </h3>
         {showDescription && (
-          <p className="mt-2 text-gray-700">{product.description}</p>
+          <p className="mt-2 text-sm  text-gray-700">{product.description}</p>
         )}
       </div>
       <div className="mt-4">
