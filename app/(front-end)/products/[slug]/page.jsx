@@ -64,7 +64,7 @@ export default function ProductDetailPage({ params: { slug } }) {
           </div>
           <ProductImage productImages={product.productImages} />
         </div>
-        <div className="w-full md:w-1/2 p-4">
+        <div className="w-full md:w-1/2 p-4 border">
           <div className="mt-2 gap-2 flex items-center">
             <span className="text-2xl font-semibold text-gray-900">
               ₹{product.discountedPrice}
@@ -74,8 +74,8 @@ export default function ProductDetailPage({ params: { slug } }) {
                 <span className="ml-2 text-lg text-gray-500 line-through">
                   ₹{product.product_price}
                 </span>
-                <span className="ml-2 text-lg text-green-600">
-                  {discountPercentage}% off
+                <span className="ml-2 text-sm bg-red-500 px-2 rounded-tl-md rounded-br-md text-white font-semibold">
+                  {discountPercentage}% OFF
                 </span>
               </>
             )}
