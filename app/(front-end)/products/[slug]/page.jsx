@@ -96,15 +96,15 @@ export default function ProductDetailPage({ params: { slug } }) {
             </button>
             <div className="flex items-center border border-green-400 rounded-lg">
               <button
-                className="border-r border-gray-400 px-2 py-1 w-10 flex justify-center"
+                className="border-r border-gray-400 px-2 py-1 w-8 flex justify-center"
                 onClick={() => handleQuantityChange(-1)}
                 disabled={quantity <= 1}
               >
                 <Minus />
               </button>
-              <span className="px-4 py-2 w-12 text-center">{quantity}</span>
+              <span className="px-4 py-2 w-8 text-start">{quantity}</span>
               <button
-                className="border-l border-gray-400 px-2 py-1 w-10 flex justify-center"
+                className="border-l border-gray-400 px-2 py-1 w-8 flex justify-center"
                 onClick={() => handleQuantityChange(1)}
               >
                 <Plus />

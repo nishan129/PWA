@@ -77,7 +77,7 @@ const Business = () => {
                     {showNumber ? (
                         <div style={styles.hotlineDetails}>Customer Executive Number: 7024409426</div>
                     ) : (
-                        <div style={styles.hotlineDetails}>Available 24 X 7· Monday to Sunday</div>
+                        <div style={styles.hotlineDetails}>Available 24 X 7</div>
                     )}
                 </div>
             </div>
