@@ -55,7 +55,7 @@ export default function Home() {
         )
       ))}
 
-      <Banner />
+      <Banner activeMarket={activeMarket} />
     </div>
   );
 }
