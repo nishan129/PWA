@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import toast from "react-hot-toast";
+import { addToCart } from "@/redux/slices/cartSlice";
 import { useSession } from 'next-auth/react';
 import { updateCart } from '@/redux/slices/cartSlice';
 
@@ -32,6 +34,20 @@ const UserOrders = () => {
     dispatch(updateCart(cartItems));
   };
 
+  const handleAddToCart = (item) => {
+    if (!product) return;
+
+    const productToCart = {
+      id: product.id,
+      title: product.title,
+      price: product.discountedPrice,
+      quantity,
+      imageUrl: product.productImages[0], // Assuming first image is the main one
+    };
+
+    dispatch(addToCart(productToCart));
+    toast.success(`${quantity} ${product.title}(s) added to cart!`);
+  };
   return (
     <div className="p-6 rounded-lg  ">
       <h2 className="text-2xl font-semibold mb-4">Your Previous Orders</h2>
