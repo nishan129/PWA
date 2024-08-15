@@ -13,7 +13,7 @@ export default function OrderSummary({ setCurrentStep }) {
     <div>
       <h2 className="text-2xl font-semibold mb-4">Order Summary</h2>
       {cartItems.map((cartItem, i) => (
-        <div key={i} className="border border-green-600 bg-slate-50 dark:bg-slate-50 rounded-md p-4 mb-4 shadow-lg relative">
+        <div key={i} className="border border-green-600 bg-white dark:bg-white rounded-md p-4 mb-4 shadow-lg relative">
           <div className="absolute top-0 right-1 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-bl">
             Qty:{cartItem.qty}
           </div>
