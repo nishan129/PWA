@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 
 export default function CartItems({ Subtotal }) {
-  const shippingCost = 10;
+  const shippingCost = 1;
   const Tax = 0;
   const total = parseFloat(Subtotal) + shippingCost + Tax;
 
@@ -21,7 +21,7 @@ export default function CartItems({ Subtotal }) {
         <span>Shipping</span>
         <span>₹{shippingCost}</span>
       </div>
-      <p>We only charge for shipping when you have over 2kg items.</p>
+      {/* <p>We only charge for shipping when you have over 2kg items.</p> */}
       <div className="flex items-center justify-between py-4">
         <span>Total</span>
         <span>₹{total.toFixed(2)}</span>
