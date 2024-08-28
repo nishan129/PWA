@@ -39,7 +39,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen -py-0">
+    <div className="min-h-screen">
       {/* <Hero onMarketClick={handleMarketClick} markets={markets} /> */}
       {/* Render content based on activeMarket */}
       {markets.length > 0 && (

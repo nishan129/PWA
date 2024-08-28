@@ -8,7 +8,7 @@ export default function Layout({ children }) {
     <div className="max-w-7xl mx-auto bg-slate-200">
       <Navbar />
       {/* <Hero /> */}
-      <div className="max-w-7xl mx-auto py-16" style={{marginTop: 12}}>
+      <div className="max-w-7xl mx-auto py-20" style={{marginTop: 12}}>
         {children}
       </div>
       <nav className="bottom-navbar">
