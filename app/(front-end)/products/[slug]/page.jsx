@@ -80,13 +80,10 @@ export default function ProductDetailPage({ params: { slug } }) {
               </>
             )}
           </div>
-          <h2>Piece Price ₹{product.piece_price}</h2>
-          <p className="mt-1 text-gray-700">
-            Minimum Wholesale Quantity: 1 {product.packets_box_peti}
-          </p>
-          <p className="text-gray-700">
+         {product.packets_box_peti !== "None" && ( <h2>Piece Price ₹{product.piece_price}</h2>)}
+          {product.packets_box_peti !== "None" && (<p className="text-gray-700">
             Per {product.packets_box_peti}: {product.no_piece} pieces
-          </p>
+          </p>)}
           <div className="flex items-center justify-between gap-10 mt-4">
             <button
               className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200"
