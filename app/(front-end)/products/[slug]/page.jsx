@@ -65,6 +65,7 @@ export default function ProductDetailPage({ params: { slug } }) {
           <ProductImage productImages={product.productImages} />
         </div>
         <div className="w-full md:w-1/2 p-4">
+        <h2 className="text-xl font-medium text-gray-800">{product.title}</h2>
           <div className="mt-2 gap-2 flex items-center">
             <span className="text-2xl font-semibold text-gray-900">
               ₹{product.discountedPrice}
