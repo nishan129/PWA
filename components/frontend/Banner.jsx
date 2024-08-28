@@ -12,7 +12,7 @@ export default function Banner({ activeMarket }) {
 
     return (
         <>
-            {activeMarket === "FMCG" && (
+            {activeMarket === "Grocery" && (
                 <div>
                     <div onClick={handleClick} className='mb-2'>
                         <Image 

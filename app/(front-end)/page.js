@@ -13,7 +13,7 @@ import Banner from '@/components/frontend/Banner';
 
 export default function Home() {
   const [markets, setMarkets] = useState([]);
-  const [activeMarket, setActiveMarket] = useState('FMCG');
+  const [activeMarket, setActiveMarket] = useState('Grocery');
   const [session, setSession] = useState(null);
 
   useEffect(() => {
@@ -39,8 +39,8 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen py-20">
-      <Hero onMarketClick={handleMarketClick} markets={markets} />
+    <div className="min-h-screen -py-0">
+      {/* <Hero onMarketClick={handleMarketClick} markets={markets} /> */}
       {/* Render content based on activeMarket */}
       {markets.length > 0 && (
           <BannerCursor activeMarket={activeMarket} markets={markets} />
