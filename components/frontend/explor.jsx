@@ -61,7 +61,9 @@ export default function ExploreProduct() {
               <h3 className="text-sm font-small text-gray-800 ">{nameShortener(product.title,15)}</h3>
               <div className='justify-between flex'>
               <p className="text-sm text-gray-600 ">{product.unit}</p>
-              <p className="text-sm text-gray-600 ">{product.packets_box_peti}</p>
+              {product.packets_box_peti !== "None" && (
+                            <p className="text-sm text-gray-600">{product.packets_box_peti}</p>
+                        )}
               </div>
               <div className="flex justify-between items-center">
                 <div className="text-lg font-semibold text-slate-800 flex items-baseline">
