@@ -52,7 +52,7 @@ export default function ProductCard({ product }) {
                     </div>
                 </Link>
                 <Link href={`/products/${product.slug}`}>
-                    <div className="text-lg font-semibold text-slate-800 flex items-baseline">
+                    <div className="text-sm font-semibold text-slate-800 flex items-baseline">
                         ₹{showDiscount ? formattedPrice : product.product_price}
                         {showDiscount && (
                             <span className="text-sm font-normal text-slate-800 ">MRP</span>
