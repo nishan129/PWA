@@ -146,7 +146,7 @@ const CustomerList = () => {
                 className="mr-2"
               />
               <span className="font-bold">{customer.storename}</span>
-              <span className="text-gray-500"> ({"kirana"})</span>
+              <span className="text-gray-500"> ({"Restaurant"})</span>
               <address className="text-gray-700">{customer.address}</address>
               <span className="text-gray-700">{customer.phone}</span>
             </div>
