@@ -51,7 +51,7 @@ export default function CartCartItem({ cartItem }) {
           {cartItem.discount && (
             <div className="text-gray-500 line-through">₹{cartItem.product_price}</div>
           )}
-          <div className="text-green-500">In stock</div>
+          <div className="text-green-500">{cartItem.unit}</div>
           <div className="rounded-xl border border-gray-400 flex gap-3 items-center mt-4">
             <button
               className="border-r border-green-400 py-2 px-2"
