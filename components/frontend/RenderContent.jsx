@@ -6,7 +6,7 @@ const renderContent = (activeMarket, markets = []) => {
   const categories = activeMarketData?.categories || [];
 
   return (
-    <div className="container mx-auto bg-slate-50 dark:bg-slate-50 rounded-lg">
+    <div className="container mx-auto bg-white dark:bg-white rounded-lg">
       <h2 className="text-center text-md mb-3">Shop by Category</h2>
       {categories.length > 0 ? (
         <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
