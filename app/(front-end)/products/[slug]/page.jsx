@@ -18,7 +18,7 @@ export default function ProductDetailPage({ params: { slug } }) {
     async function fetchProductData() {
       try {
         const productData = await getData("products");
-        const foundProduct = productData.find((product) => product.slug === slug);
+        const foundProduct = productData.find((item) => item.slug === slug);
         if (foundProduct) setProduct(foundProduct);
       } catch (error) {
         console.error("Failed to fetch product data:", error);
@@ -27,19 +27,21 @@ export default function ProductDetailPage({ params: { slug } }) {
     fetchProductData();
   }, [slug]);
 
-  const handleAddToCart = () => {
-    if (!product) return;
-
+  // Simplified add to cart function
+  const handleAddToCart = (product) => {
     const productToCart = {
       id: product.id,
       title: product.title,
-      price: product.discountedPrice,
+      unit : product.unit,
+      discountedPrice: product.discountedPrice ,
+      product_price :product.product_price,
+      discount: product.discount,
       quantity,
-      imageUrl: product.productImages[0], // Assuming first image is the main one
+      imageUrl: product.productImages[0] || "", 
     };
 
     dispatch(addToCart(productToCart));
-    toast.success(`${quantity} ${product.title}(s) added to cart!`);
+    toast.success("Item added to cart successfully!");
   };
 
   const handleQuantityChange = (delta) => {
@@ -65,10 +67,10 @@ export default function ProductDetailPage({ params: { slug } }) {
           <ProductImage productImages={product.productImages} />
         </div>
         <div className="w-full md:w-1/2 p-4">
-        <h2 className="text-xl font-medium text-gray-800">{product.title}</h2>
+          <h2 className="text-xl font-medium text-gray-800">{product.title}</h2>
           <div className="mt-2 gap-2 flex items-center">
             <span className="text-2xl font-semibold text-gray-900">
-              ₹{product.discountedPrice}
+              ₹{product.discountedPrice || product.product_price}
             </span>
             {product.product_price > product.discountedPrice && (
               <>
@@ -81,14 +83,18 @@ export default function ProductDetailPage({ params: { slug } }) {
               </>
             )}
           </div>
-         {product.packets_box_peti !== "None" && ( <h2>Piece Price ₹{product.piece_price}</h2>)}
-          {product.packets_box_peti !== "None" && (<p className="text-gray-700">
-            Per {product.packets_box_peti}: {product.no_piece} pieces
-          </p>)}
+          {product.packets_box_peti !== "None" && (
+            <>
+              <h2>Piece Price ₹{product.piece_price}</h2>
+              <p className="text-gray-700">
+                Per {product.packets_box_peti}: {product.no_piece} pieces
+              </p>
+            </>
+          )}
           <div className="flex items-center justify-between gap-10 mt-4">
             <button
               className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200"
-              onClick={handleAddToCart}
+              onClick={() => handleAddToCart(product)}
             >
               Add to Cart
             </button>
@@ -116,11 +122,10 @@ export default function ProductDetailPage({ params: { slug } }) {
           className="text-xl flex border-b border-gray-500 justify-between font-semibold text-gray-800 cursor-pointer"
           onClick={() => setShowDescription(!showDescription)}
         >
-          Product Description{" "}
-          {showDescription ? <ChevronUp /> : <ChevronDown />}
+          Product Description {showDescription ? <ChevronUp /> : <ChevronDown />}
         </h3>
         {showDescription && (
-          <p className="mt-2 text-sm  text-gray-700">{product.description}</p>
+          <p className="mt-2 text-sm text-gray-700">{product.description}</p>
         )}
       </div>
       <div className="mt-4">
