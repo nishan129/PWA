@@ -27,20 +27,18 @@ export default function ProductDetailPage({ params: { slug } }) {
     fetchProductData();
   }, [slug]);
 
-  // Simplified add to cart function
   const handleAddToCart = (product) => {
-    const productToCart = {
-      id: product.id,
-      title: product.title,
-      unit : product.unit,
-      discountedPrice: product.discountedPrice ,
-      product_price :product.product_price,
-      discount: product.discount,
-      quantity,
-      imageUrl: product.productImages[0] || "", 
-    };
-
-    dispatch(addToCart(productToCart));
+    // const productToCart = {
+    //   id: product.id,
+    //   title: product.title,
+    //   unit: product.unit,
+    //   discountedPrice: product.discountedPrice || product.product_price,
+    //   product_price: product.product_price,
+    //   discount: product.discount,
+    //   quantity,
+    //   imageUrl: product.productImages[0] || "",
+    // };
+    dispatch(addToCart(product));
     toast.success("Item added to cart successfully!");
   };
 
