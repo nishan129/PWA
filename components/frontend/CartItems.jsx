@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 
 export default function CartItems({ Subtotal }) {
-  const shippingCost = 0;
+  const shippingCost = 5;
   const Tax = 0;
   const total = parseFloat(Subtotal) + shippingCost + Tax;
 
