@@ -79,14 +79,14 @@ export default function RegisterForm({ role = 'KIRANA' }) {
         type="email"
         className="sm:col-span-2 mb-3"
       />
-      <TextInput 
+      {/* <TextInput 
         label="GST Number" 
         name="gstNumber"
         register={register}
         errors={errors}
         type="text"
         className="sm:col-span-2 mb-3"
-      />
+      /> */}
       {emailErr && <small className="text-red-600 -mt-2 mb-2">{emailErr}</small>}
       <TextInput 
         label="Password" 
