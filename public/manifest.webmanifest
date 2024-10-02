@@ -4,8 +4,8 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "Loksell",
-    "short_name": "Loksell",
+    "name": "Grozzo",
+    "short_name": "Grozzo",
     "description": "Making distribution as easy as pie",
     "icons": [
         {
